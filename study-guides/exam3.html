@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Exam 3 Study Guide · MAT 137 Calculus II</title>
+<meta name="description" content="MAT 137 Calculus II Exam 3 study guide: practice problems with drop-down solutions.">
+<script>try{var t=JSON.parse(localStorage.getItem("mat137-sg:theme"));if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t);}catch(e){}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/guide.css">
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(', '\\)']],
+    displayMath: [['\\[', '\\]'], ['$$', '$$']],
+    macros: {
+      ds: '\\displaystyle',
+      abs: ['\\left|#1\\right|', 1],
+      dd: '\\,d'
+    }
+  }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+<script defer src="assets/guide.js"></script>
+</head>
+<body data-guide="exam3">
+<header class="masthead">
+  <div class="masthead-inner">
+    <div class="crumbs"><a href="index.html">MAT 137 Calculus II · Study Guides</a><span class="sep">/</span><span>Exam 3</span></div>
+    <h1>Exam 3 Study Guide</h1>
+    <p class="lede">Sequences, series, and the convergence tests.</p>
+    <ul class="chips"><li>Sequences &amp; limits</li><li>Monotone Sequence Theorem</li><li>Geometric &amp; telescoping series</li><li>p-series</li><li>Divergence &amp; integral tests</li><li>Comparison tests</li><li>Alternating series</li><li>Ratio &amp; root tests</li></ul>
+  </div>
+</header>
+<div class="toolbar">
+  <div class="toolbar-inner">
+    <div class="progress"><span class="progress-label"><b>0</b> of 17 problems marked done</span><span class="bar"><span></span></span></div>
+    <div class="tools">
+      <button type="button" class="btn" data-action="expand">Show all solutions</button>
+      <button type="button" class="btn" data-action="collapse">Hide all solutions</button>
+      <button type="button" class="btn" data-action="reset" title="Clear the done marks on this page">Reset progress</button>
+      <button type="button" class="btn icon" data-action="theme" title="Switch light / dark" aria-label="Switch light or dark theme"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M13.2 10.1A5.6 5.6 0 0 1 5.9 2.8a5.6 5.6 0 1 0 7.3 7.3Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></button>
+    </div>
+  </div>
+</div>
+<div class="layout">
+  <nav class="toc" aria-label="Sections">
+    <p class="toc-title">On this page</p>
+    <ol><li><a href="#concepts"><span>Definitions and concepts</span><span class="count">0/5</span></a></li><li><a href="#true-false"><span>True or false</span><span class="count">0/1</span></a></li><li><a href="#examples"><span>Examples and non-examples</span><span class="count">0/1</span></a></li><li><a href="#thinking"><span>Thinking about series</span><span class="count">0/2</span></a></li><li><a href="#proofs"><span>Short proofs</span><span class="count">0/3</span></a></li><li><a href="#sequences"><span>Limits of sequences</span><span class="count">0/1</span></a></li><li><a href="#sums"><span>Sums of series</span><span class="count">0/1</span></a></li><li><a href="#tests"><span>Choosing a convergence test</span><span class="count">0/1</span></a></li><li><a href="#absolute"><span>Absolute and conditional convergence</span><span class="count">0/1</span></a></li><li><a href="#challenge"><span>A challenge</span><span class="count">0/1</span></a></li></ol>
+    <div class="toc-foot"><a href="index.html">&larr; All study guides</a></div>
+  </nav>
+  <main>
+
+<div class="panel">
+  <h2>What you should know and be able to do</h2>
+  <ul>
+    <li>Although the exam directly tests sequences and series, it indirectly tests mastery of the previous chapters.</li>
+    <li>Define a sequence explicitly or recursively from the terms of the sequence.</li>
+    <li>Compute the limit of a sequence.</li>
+    <li>State and use the Monotone Sequence Theorem.</li>
+    <li>Explain the difference between a sequence and a series.</li>
+    <li>Explain what it means for a sequence or a series to converge (partial sums).</li>
+    <li>Geometric, telescoping, harmonic, and \(p\)-series.</li>
+    <li>State the following tests in detail and apply them to determine convergence or divergence: Divergence Test, Integral Test, Comparison Test, Limit Comparison Test, Alternating Series Test, Ratio Test, Root Test.</li>
+    <li>Call upon your own mental faculties to respond in flexible, thoughtful, and creative ways to problems that may seem unfamiliar at first glance.</li>
+  </ul>
+</div>
+<details class="panel ref" id="reference">
+  <summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> Reference: series convergence tests</summary>
+  <div class="table-wrap">
+  <table class="reftable">
+    <thead><tr><th>Test</th><th>Series</th><th>Conclusion</th></tr></thead>
+    <tbody>
+      <tr><th>Divergence Test</th><td>\(\sum a_n\)</td><td>If \(\lim_{n\to\infty} a_n \neq 0\) (or does not exist), the series diverges. If the limit is \(0\), the test says nothing.</td></tr>
+      <tr><th>Geometric series</th><td>\(\displaystyle\sum_{n=1}^\infty ar^{n-1}\)</td><td>Converges if \(|r| \lt 1\), with sum \(\dfrac{a}{1-r}\); diverges if \(|r| \ge 1\).</td></tr>
+      <tr><th>\(p\)-series</th><td>\(\displaystyle\sum_{n=1}^\infty \frac{1}{n^p}\)</td><td>Converges if \(p \gt 1\); diverges if \(p \le 1\).</td></tr>
+      <tr><th>Integral Test</th><td>\(a_n = f(n)\), \(f\) continuous, positive, decreasing</td><td>\(\sum a_n\) and \(\int_1^\infty f(x)\,dx\) both converge or both diverge.</td></tr>
+      <tr><th>Comparison</th><td>\(0 \le a_n \le b_n\)</td><td>If \(\sum b_n\) converges, so does \(\sum a_n\). If \(\sum a_n\) diverges, so does \(\sum b_n\).</td></tr>
+      <tr><th>Limit Comparison</th><td>\(a_n, b_n \gt 0\), \(\lim\limits_{n\to\infty}\dfrac{a_n}{b_n} = L\)</td><td>If \(0 \lt L \lt \infty\), both series converge or both diverge.</td></tr>
+      <tr><th>Alternating Series Test</th><td>\(\sum (-1)^n b_n\), \(b_n \gt 0\)</td><td>If \(b_n\) is decreasing and \(\lim b_n = 0\), the series converges.</td></tr>
+      <tr><th>Absolute convergence</th><td>\(\sum a_n\)</td><td>If \(\sum |a_n|\) converges, then \(\sum a_n\) converges (absolutely). Convergent but not absolutely convergent means <em>conditionally</em> convergent.</td></tr>
+      <tr><th>Ratio Test</th><td>\(\lim\limits_{n\to\infty}\left|\dfrac{a_{n+1}}{a_n}\right| = L\)</td><td>\(L \lt 1\): converges absolutely. \(L \gt 1\): diverges. \(L = 1\): inconclusive.</td></tr>
+      <tr><th>Root Test</th><td>\(\lim\limits_{n\to\infty}\sqrt[n]{|a_n|} = L\)</td><td>\(L \lt 1\): converges absolutely. \(L \gt 1\): diverges. \(L = 1\): inconclusive.</td></tr>
+    </tbody>
+  </table>
+  </div>
+</details>
+  <section class="section" id="concepts">
+    <div class="section-head"><span class="eyebrow">Problems 1–5</span></div>
+    <h2>Definitions and concepts</h2>
+    <div class="instructions"></div>
+    <div class="plist">
+    <article class="prob" id="p1">
+      <div class="prob-top"><a class="pnum" href="#p1">1</a><button type="button" class="mark" aria-pressed="false" aria-label="Mark problem 1 as done"><span class="box"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.2 5 8.6 9.6 3.6" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="t-todo">Mark done</span><span class="t-done">Done</span></button></div>
+      <div class="prompt">What is a bounded sequence? What is a monotonic sequence? What can you say about a bounded monotonic sequence?</div>
+      <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+        <div class="sol-body"><p><strong>Bounded:</strong> there are numbers \(m\) and \(M\) with \(m \le a_n \le M\) for every \(n\).</p><p><strong>Monotonic:</strong> the sequence is either increasing (\(a_n \le a_{n+1}\) for all \(n\)) or decreasing (\(a_n \ge a_{n+1}\) for all \(n\)).</p><p><strong>Monotone Sequence Theorem:</strong> every bounded, monotonic sequence converges.</p></div>
+      </details>
+    </article>
+    <article class="prob" id="p2">
+      <div class="prob-top"><a class="pnum" href="#p2">2</a><button type="button" class="mark" aria-pressed="false" aria-label="Mark problem 2 as done"><span class="box"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.2 5 8.6 9.6 3.6" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="t-todo">Mark done</span><span class="t-done">Done</span></button></div>
+      <div class="prompt">What is a convergent sequence? What is a convergent series? Explain what it means to say \(\displaystyle\lim_{n\to\infty} a_n = 3\). What does it mean to say \(\displaystyle\sum_{n=1}^\infty a_n = 3\)?</div>
+      <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+        <div class="sol-body"><p>A sequence \(\{a_n\}\) converges if \(\lim_{n\to\infty} a_n\) exists as a finite number.</p><p>A series \(\sum a_n\) converges if its sequence of partial sums \(S_N = a_1 + a_2 + \cdots + a_N\) converges.</p><p>\(\lim_{n\to\infty} a_n = 3\) means the <em>terms</em> \(a_n\) can be made as close to 3 as we like by taking \(n\) large enough.</p><p>\(\sum_{n=1}^\infty a_n = 3\) means the <em>partial sums</em> approach 3: \(\lim_{N\to\infty} S_N = 3\). (In that case the terms themselves must approach 0.)</p></div>
+      </details>
+    </article>
+    <article class="prob" id="p3">
+      <div class="prob-top"><a class="pnum" href="#p3">3</a><button type="button" class="mark" aria-pressed="false" aria-label="Mark problem 3 as done"><span class="box"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.2 5 8.6 9.6 3.6" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="t-todo">Mark done</span><span class="t-done">Done</span></button></div>
+      <div class="prompt">What is a geometric series? Under what circumstances is it convergent? What is its sum?</div>
+      <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+        <div class="sol-body"><p>A series in which each term is a fixed multiple \(r\) of the previous one: \(\displaystyle\sum_{n=1}^\infty ar^{n-1} = a + ar + ar^2 + \cdots\)</p><p>It converges exactly when \(|r| \lt 1\), and then its sum is \(\dfrac{a}{1-r}\) (first term over one minus the ratio). It diverges when \(|r| \ge 1\) (and \(a \ne 0\)).</p></div>
+      </details>
+    </article>
+    <article class="prob" id="p4">
+      <div class="prob-top"><a class="pnum" href="#p4">4</a><button type="button" class="mark" aria-pressed="false" aria-label="Mark problem 4 as done"><span class="box"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.2 5 8.6 9.6 3.6" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="t-todo">Mark done</span><span class="t-done">Done</span></button></div>
+      <div class="prompt">What is a \(p\)-series? Under what circumstances is it convergent?</div>
+      <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+        <div class="sol-body"><p>\(\displaystyle\sum_{n=1}^\infty \frac{1}{n^p}\). It converges if \(p \gt 1\) and diverges if \(p \le 1\). (The harmonic series is the case \(p = 1\).)</p></div>
+      </details>
+    </article>
+    <article class="prob" id="p5">
+      <div class="prob-top"><a class="pnum" href="#p5">5</a><button type="button" class="mark" aria-pressed="false" aria-label="Mark problem 5 as done"><span class="box"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.2 5 8.6 9.6 3.6" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="t-todo">Mark done</span><span class="t-done">Done</span></button></div>
+      <div class="prompt">Suppose \(\sum a_n = 3\) and \(S_n\) is the \(n\)th partial sum of the series. What is \(\lim_{n\to\infty} a_n\)? What is \(\lim_{n\to\infty} S_n\)?</div>
+      <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+        <div class="sol-body"><p>\(\lim_{n\to\infty} a_n = 0\), because \(a_n = S_n - S_{n-1} \to 3 - 3 = 0\).</p><p>\(\lim_{n\to\infty} S_n = 3\), by the definition of the sum of a series.</p></div>
+      </details>
+    </article>
+    </div>
+  </section>
+  <section class="section" id="true-false">
+    <div class="section-head"><span class="eyebrow">Problem 6</span></div>
+    <h2>True or false</h2>
+    <div class="instructions"></div>
+    <div class="plist">
+    <article class="prob" id="p6">
+      <div class="prob-top"><a class="pnum" href="#p6">6</a><button type="button" class="mark" aria-pressed="false" aria-label="Mark problem 6 as done"><span class="box"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.2 5 8.6 9.6 3.6" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="t-todo">Mark done</span><span class="t-done">Done</span></button></div>
+      <div class="prompt"><strong>True or false.</strong> If the statement is true, provide an explanation. If it is false, provide an example that disproves the statement.</div>
+      <ol class="parts">
+        <li><span class="plabel">(a)</span><div><div class="prompt">If \(\lim_{n\to\infty} a_n = 0\), then \(\sum a_n\) is convergent.</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p class="ans">False.</p><p class="why">The harmonic series: \(\frac{1}{n} \to 0\), but \(\sum \frac{1}{n}\) diverges.</p></div>
+          </details>
+</div></li>
+        <li><span class="plabel">(b)</span><div><div class="prompt">If \(\lim_{n\to\infty} a_n = L\), then \(\lim_{n\to\infty} a_{2n+1} = L\).</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p class="ans">True.</p><p class="why">\(\{a_{2n+1}\}\) is a subsequence of \(\{a_n\}\): once \(a_n\) is within \(\varepsilon\) of \(L\) for all large \(n\), so is every \(a_{2n+1}\).</p></div>
+          </details>
+</div></li>
+        <li><span class="plabel">(c)</span><div><div class="prompt">The ratio test can be used to determine whether \(\sum 1/n^3\) converges.</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p class="ans">False.</p><p class="why">\(\dfrac{a_{n+1}}{a_n} = \dfrac{n^3}{(n+1)^3} \to 1\), so the ratio test is inconclusive. (The series converges, as a \(p\)-series with \(p = 3\).)</p></div>
+          </details>
+</div></li>
+        <li><span class="plabel">(d)</span><div><div class="prompt">The ratio test can be used to determine whether \(\sum 1/n!\) converges.</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p class="ans">True.</p><p class="why">\(\dfrac{a_{n+1}}{a_n} = \dfrac{1}{n+1} \to 0 \lt 1\), so the series converges.</p></div>
+          </details>
+</div></li>
+        <li><span class="plabel">(e)</span><div><div class="prompt">If \(0 \le a_n \le b_n\) and \(\sum b_n\) diverges, then \(\sum a_n\) diverges.</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p class="ans">False.</p><p class="why">\(a_n = \frac{1}{n^2}\), \(b_n = \frac{1}{n}\). A smaller series can converge underneath a divergent one.</p></div>
+          </details>
+</div></li>
+        <li><span class="plabel">(f)</span><div><div class="prompt">If \(\sum a_n\) diverges, then \(\sum |a_n|\) diverges.</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p class="ans">True.</p><p class="why">If \(\sum |a_n|\) converged, then \(\sum a_n\) would converge (absolute convergence implies convergence). This is the contrapositive.</p></div>
+          </details>
+</div></li>
+        <li><span class="plabel">(g)</span><div><div class="prompt">If \(\{a_n\}\) and \(\{b_n\}\) are divergent, then \(\{a_n + b_n\}\) is divergent.</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p class="ans">False.</p><p class="why">\(a_n = n\), \(b_n = -n\): both diverge, but \(a_n + b_n = 0\) converges.</p></div>
+          </details>
+</div></li>
+        <li><span class="plabel">(h)</span><div><div class="prompt">If \(\{a_n\}\) and \(\{b_n\}\) are divergent, then \(\{a_n b_n\}\) is divergent.</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p class="ans">False.</p><p class="why">\(a_n = b_n = (-1)^n\): both diverge, but \(a_n b_n = 1\) converges.</p></div>
+          </details>
+</div></li>
+        <li><span class="plabel">(i)</span><div><div class="prompt">If \(\{a_n\}\) is decreasing and \(a_n \gt 0\) for all \(n\), then \(\{a_n\}\) is convergent.</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p class="ans">True.</p><p class="why">The sequence is monotonic and bounded (between \(0\) and \(a_1\)), so it converges by the Monotone Sequence Theorem.</p></div>
+          </details>
+</div></li>
+        <li><span class="plabel">(j)</span><div><div class="prompt">If \(a_n \gt 0\) and \(\sum a_n\) converges, then \(\sum (-1)^n a_n\) converges.</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p class="ans">True.</p><p class="why">\(\sum |(-1)^n a_n| = \sum a_n\) converges, so \(\sum (-1)^n a_n\) converges absolutely.</p></div>
+          </details>
+</div></li>
+        <li><span class="plabel">(k)</span><div><div class="prompt">If \(a_n \gt 0\) and \(\lim_{n\to\infty}(a_{n+1}/a_n) \lt 1\), then \(\lim_{n\to\infty} a_n = 0\).</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p class="ans">True.</p><p class="why">By the ratio test, \(\sum a_n\) converges, and the terms of a convergent series tend to 0.</p></div>
+          </details>
+</div></li>
+        <li><span class="plabel">(l)</span><div><div class="prompt">If \(\lim_{n\to\infty} a_n = 2\), then \(\lim_{n\to\infty}(a_{n+3} - a_n) = 0\).</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p class="ans">True.</p><p class="why">\(a_{n+3} \to 2\) and \(a_n \to 2\), so the difference tends to \(2 - 2 = 0\).</p></div>
+          </details>
+</div></li>
+        <li><span class="plabel">(m)</span><div><div class="prompt">If a finite number of terms are added to a convergent series, then the new series is still convergent.</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p class="ans">True.</p><p class="why">Adding finitely many terms changes every partial sum (from some point on) by the same fixed number, so the partial sums still have a limit.</p></div>
+          </details>
+</div></li>
+        <li><span class="plabel">(n)</span><div><div class="prompt">If \(\sum_{n=1}^\infty a_n = A\) and \(\sum_{n=1}^\infty b_n = B\), then \(\sum_{n=1}^\infty a_n b_n = AB\).</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p class="ans">False.</p><p class="why">\(a_n = b_n = \left(\tfrac{1}{2}\right)^n\): \(A = B = 1\), but \(\sum \left(\tfrac{1}{4}\right)^n = \tfrac{1}{3} \ne 1\).</p></div>
+          </details>
+</div></li>
+      </ol>
+    </article>
+    </div>
+  </section>
+  <section class="section" id="examples">
+    <div class="section-head"><span class="eyebrow">Problem 7</span></div>
+    <h2>Examples and non-examples</h2>
+    <div class="instructions"></div>
+    <div class="plist">
+    <article class="prob" id="p7">
+      <div class="prob-top"><a class="pnum" href="#p7">7</a><button type="button" class="mark" aria-pressed="false" aria-label="Mark problem 7 as done"><span class="box"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.2 5 8.6 9.6 3.6" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="t-todo">Mark done</span><span class="t-done">Done</span></button></div>
+      <div class="prompt">Give an example of the following or explain why such an example is impossible.</div>
+      <ol class="parts">
+        <li><span class="plabel">(a)</span><div><div class="prompt">A sequence \(\{a_n\}\) that converges but \(\sum a_n\) diverges.</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p>\(a_n = \frac{1}{n}\): the sequence converges to 0, but the harmonic series diverges.</p></div>
+          </details>
+</div></li>
+        <li><span class="plabel">(b)</span><div><div class="prompt">A sequence \(\{a_n\}\) that diverges but \(\sum a_n\) converges.</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p><strong>Impossible.</strong> If \(\sum a_n\) converges, then \(a_n \to 0\), so the sequence converges.</p></div>
+          </details>
+</div></li>
+        <li><span class="plabel">(c)</span><div><div class="prompt">An increasing sequence that converges to \(-3\).</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p>\(a_n = -3 - \frac{1}{n}\).</p></div>
+          </details>
+</div></li>
+        <li><span class="plabel">(d)</span><div><div class="prompt">A sequence that is bounded between \(3\) and \(7\) but does not converge.</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p>\(a_n = 5 + (-1)^n\), which alternates \(4, 6, 4, 6, \ldots\)</p></div>
+          </details>
+</div></li>
+        <li><span class="plabel">(e)</span><div><div class="prompt">A decreasing sequence that is bounded below by \(1\) but does not converge.</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p><strong>Impossible.</strong> A decreasing sequence that is bounded below is monotonic and bounded, so it converges by the Monotone Sequence Theorem.</p></div>
+          </details>
+</div></li>
+        <li><span class="plabel">(f)</span><div><div class="prompt">An infinite series that converges to \(431\).</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p>\(\displaystyle\sum_{n=1}^\infty 431\left(\tfrac{1}{2}\right)^n = 431\cdot\frac{1/2}{1 - 1/2} = 431\).</p></div>
+          </details>
+</div></li>
+        <li><span class="plabel">(g)</span><div><div class="prompt">A pair of series \(\sum a_n\) and \(\sum b_n\) with positive terms where \(\lim_{n\to\infty}\frac{a_n}{b_n} = 0\) and \(\sum b_n\) diverges, but \(\sum a_n\) converges.</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p>\(a_n = \frac{1}{n^2}\), \(b_n = \frac{1}{n}\): \(\frac{a_n}{b_n} = \frac{1}{n} \to 0\).</p></div>
+          </details>
+</div></li>
+        <li><span class="plabel">(h)</span><div><div class="prompt">A sequence of non-negative terms \(\{a_n\}\) where \(\lim_{n\to\infty} a_n = 0\) and \(\sum_{n=1}^\infty (-1)^n a_n\) diverges.</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p>\(a_n = \frac{1}{n}\) for even \(n\) and \(a_n = 0\) for odd \(n\). Then \(\sum (-1)^n a_n = \frac{1}{2} + \frac{1}{4} + \frac{1}{6} + \cdots = \frac{1}{2}\sum \frac{1}{k}\), which diverges. (The Alternating Series Test does not apply because \(a_n\) is not decreasing.)</p></div>
+          </details>
+</div></li>
+        <li><span class="plabel">(i)</span><div><div class="prompt">A series for which the ratio test is inconclusive.</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p>\(\sum \frac{1}{n}\) (or any \(p\)-series): the ratio \(\frac{n}{n+1} \to 1\).</p></div>
+          </details>
+</div></li>
+      </ol>
+    </article>
+    </div>
+  </section>
+  <section class="section" id="thinking">
+    <div class="section-head"><span class="eyebrow">Problems 8–9</span></div>
+    <h2>Thinking about series</h2>
+    <div class="instructions"></div>
+    <div class="plist">
+    <article class="prob" id="p8">
+      <div class="prob-top"><a class="pnum" href="#p8">8</a><button type="button" class="mark" aria-pressed="false" aria-label="Mark problem 8 as done"><span class="box"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.2 5 8.6 9.6 3.6" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="t-todo">Mark done</span><span class="t-done">Done</span></button></div>
+      <div class="prompt">Let \(x = 0.99999999999\ldots\)</div>
+      <ol class="parts">
+        <li><span class="plabel">(a)</span><div><div class="prompt">Do you think that \(x \lt 1\) or \(x = 1\)?</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p>\(x = 1\). (There is no number strictly between \(0.999\ldots\) and \(1\).)</p></div>
+          </details>
+</div></li>
+        <li><span class="plabel">(b)</span><div><div class="prompt">Sum a geometric series to find the value of \(x\).</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p>\(\displaystyle x = \frac{9}{10} + \frac{9}{100} + \frac{9}{1000} + \cdots = \frac{9/10}{1 - 1/10} = 1\)</p></div>
+          </details>
+</div></li>
+      </ol>
+    </article>
+    <article class="prob" id="p9">
+      <div class="prob-top"><a class="pnum" href="#p9">9</a><button type="button" class="mark" aria-pressed="false" aria-label="Mark problem 9 as done"><span class="box"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.2 5 8.6 9.6 3.6" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="t-todo">Mark done</span><span class="t-done">Done</span></button></div>
+      <div class="prompt">What is wrong with the following calculation?
+\[
+\begin{aligned}
+0 &= 0 + 0 + 0 + \cdots \\
+  &= (1 - 1) + (1 - 1) + (1 - 1) + \cdots \\
+  &= 1 - 1 + 1 - 1 + 1 - 1 + \cdots \\
+  &= 1 + (-1 + 1) + (-1 + 1) + (-1 + 1) + \cdots \\
+  &= 1 + 0 + 0 + 0 + \cdots = 1
+\end{aligned}
+\]
+<p>(Guido Ubaldus thought that this proved the existence of God because &ldquo;something has been created from nothing.&rdquo;)</p></div>
+      <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+        <div class="sol-body"><p>Removing the parentheses (line 2 to line 3) produces the series \(\sum (-1)^{n+1} = 1 - 1 + 1 - \cdots\), which <strong>diverges</strong>: its partial sums alternate \(1, 0, 1, 0, \ldots\) and have no limit (and its terms do not approach 0).</p><p>Grouping or ungrouping terms is only safe for a <em>convergent</em> series. Lines 2 and 4 are two different groupings of the same divergent series, so they need not agree.</p></div>
+      </details>
+    </article>
+    </div>
+  </section>
+  <section class="section" id="proofs">
+    <div class="section-head"><span class="eyebrow">Problems 10–12</span></div>
+    <h2>Short proofs</h2>
+    <div class="instructions"></div>
+    <div class="plist">
+    <article class="prob" id="p10">
+      <div class="prob-top"><a class="pnum" href="#p10">10</a><button type="button" class="mark" aria-pressed="false" aria-label="Mark problem 10 as done"><span class="box"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.2 5 8.6 9.6 3.6" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="t-todo">Mark done</span><span class="t-done">Done</span></button></div>
+      <div class="prompt">Prove that if \(a_n \ge 0\) and \(\sum a_n\) converges, then \(\sum a_n^2\) also converges.</div>
+      <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+        <div class="sol-body"><p>Since \(\sum a_n\) converges, \(a_n \to 0\). So there is an \(N\) with \(0 \le a_n \lt 1\) for all \(n \ge N\).</p><p>For those \(n\), \(a_n^2 = a_n\cdot a_n \le a_n\). Since \(\sum a_n\) converges, \(\sum a_n^2\) converges by the Comparison Test (the first \(N\) terms do not affect convergence).</p></div>
+      </details>
+    </article>
+    <article class="prob" id="p11">
+      <div class="prob-top"><a class="pnum" href="#p11">11</a><button type="button" class="mark" aria-pressed="false" aria-label="Mark problem 11 as done"><span class="box"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.2 5 8.6 9.6 3.6" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="t-todo">Mark done</span><span class="t-done">Done</span></button></div>
+      <div class="prompt">Suppose that \(\sum a_n\) and \(\sum b_n\) are series with positive terms and \(\sum b_n\) is convergent. Prove that if
+\[\lim_{n\to\infty}\frac{a_n}{b_n} = 0\]
+then \(\sum a_n\) is also convergent.</div>
+      <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+        <div class="sol-body"><p>Because the limit is \(0\), there is an \(N\) such that \(\frac{a_n}{b_n} \lt 1\) for all \(n \ge N\); that is, \(0 \lt a_n \lt b_n\).</p><p>Since \(\sum b_n\) converges, \(\sum_{n \ge N} a_n\) converges by the Comparison Test, and so does \(\sum a_n\).</p></div>
+      </details>
+    </article>
+    <article class="prob" id="p12">
+      <div class="prob-top"><a class="pnum" href="#p12">12</a><button type="button" class="mark" aria-pressed="false" aria-label="Mark problem 12 as done"><span class="box"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.2 5 8.6 9.6 3.6" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="t-todo">Mark done</span><span class="t-done">Done</span></button></div>
+      <div class="prompt">Suppose that \(\sum a_n\) and \(\sum b_n\) are series with positive terms and \(\sum b_n\) is divergent. Prove that if
+\[\lim_{n\to\infty}\frac{a_n}{b_n} = \infty\]
+then \(\sum a_n\) is also divergent.</div>
+      <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+        <div class="sol-body"><p>Because the limit is \(\infty\), there is an \(N\) such that \(\frac{a_n}{b_n} \gt 1\) for all \(n \ge N\); that is, \(a_n \gt b_n \gt 0\).</p><p>Since \(\sum b_n\) diverges, \(\sum_{n\ge N} a_n\) diverges by the Comparison Test, and so does \(\sum a_n\).</p></div>
+      </details>
+    </article>
+    </div>
+  </section>
+  <section class="section" id="sequences">
+    <div class="section-head"><span class="eyebrow">Problem 13</span></div>
+    <h2>Limits of sequences</h2>
+    <div class="instructions"></div>
+    <div class="plist">
+    <article class="prob" id="p13">
+      <div class="prob-top"><a class="pnum" href="#p13">13</a><button type="button" class="mark" aria-pressed="false" aria-label="Mark problem 13 as done"><span class="box"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.2 5 8.6 9.6 3.6" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="t-todo">Mark done</span><span class="t-done">Done</span></button></div>
+      <div class="prompt">Determine whether the following sequences \(\{a_n\}\) converge or diverge. Find the limit of the convergent sequences. Justify your answers (e.g. geometric sequence, L&rsquo;H&ocirc;pital&rsquo;s Rule, Squeeze Theorem, Monotone Sequence Theorem).</div>
+      <ol class="parts">
+        <li><span class="plabel">(a)</span><div><div class="prompt">\(\displaystyle a_n = \frac{e^n}{3^n}\)</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p class="ans">Converges to \(0\).</p><p class="why">Geometric sequence \(\left(\frac{e}{3}\right)^n\) with \(\left|\frac{e}{3}\right| \lt 1\).</p></div>
+          </details>
+</div></li>
+        <li><span class="plabel">(b)</span><div><div class="prompt">\(\displaystyle a_n = \frac{3^n}{e^n}\)</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p class="ans">Diverges.</p><p class="why">Geometric sequence \(\left(\frac{3}{e}\right)^n\) with \(\frac{3}{e} \gt 1\).</p></div>
+          </details>
+</div></li>
+        <li><span class="plabel">(c)</span><div><div class="prompt">\(\displaystyle a_n = \frac{\sin^3 n}{n^2 + n}\)</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p class="ans">Converges to \(0\).</p><p class="why">Squeeze Theorem: \(\dfrac{-1}{n^2+n} \le \dfrac{\sin^3 n}{n^2+n} \le \dfrac{1}{n^2+n}\).</p></div>
+          </details>
+</div></li>
+        <li><span class="plabel">(d)</span><div><div class="prompt">\(\displaystyle a_n = \frac{n^3 - 4}{3n^3 - 2n^2 + 1}\)</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p class="ans">Converges to \(\frac{1}{3}\).</p><p class="why">Divide the numerator and denominator by \(n^3\).</p></div>
+          </details>
+</div></li>
+        <li><span class="plabel">(e)</span><div><div class="prompt">\(\displaystyle a_n = \frac{\sqrt{n}}{n + 3}\)</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p class="ans">Converges to \(0\).</p><p class="why">Divide the numerator and denominator by \(n\) (or use L&rsquo;H&ocirc;pital&rsquo;s Rule).</p></div>
+          </details>
+</div></li>
+        <li><span class="plabel">(f)</span><div><div class="prompt">\(\displaystyle a_n = ne^{-n}\)</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p class="ans">Converges to \(0\).</p><p class="why">L&rsquo;H&ocirc;pital&rsquo;s Rule on \(\frac{x}{e^x}\): \(\lim \frac{1}{e^x} = 0\).</p></div>
+          </details>
+</div></li>
+      </ol>
+    </article>
+    </div>
+  </section>
+  <section class="section" id="sums">
+    <div class="section-head"><span class="eyebrow">Problem 14</span></div>
+    <h2>Sums of series</h2>
+    <div class="instructions"></div>
+    <div class="plist">
+    <article class="prob" id="p14">
+      <div class="prob-top"><a class="pnum" href="#p14">14</a><button type="button" class="mark" aria-pressed="false" aria-label="Mark problem 14 as done"><span class="box"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.2 5 8.6 9.6 3.6" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="t-todo">Mark done</span><span class="t-done">Done</span></button></div>
+      <div class="prompt">Find the sum of the series (if it exists at all).</div>
+      <ol class="parts">
+        <li><span class="plabel">(a)</span><div><div class="prompt">\(\displaystyle \sum_{n=1}^{\infty}\frac{5^n}{6^{n-1}}\)</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p class="ans">\(30\)</p><p class="why">Geometric: first term \(a = 5\), ratio \(r = \frac{5}{6}\); sum \(= \frac{5}{1 - 5/6} = 30\).</p></div>
+          </details>
+</div></li>
+        <li><span class="plabel">(b)</span><div><div class="prompt">\(\displaystyle \sum_{n=2}^{\infty}\left(\frac{4}{9}\right)^n\)</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p class="ans">\(\frac{16}{45}\)</p><p class="why">Geometric: first term \(a = \frac{16}{81}\), ratio \(r = \frac{4}{9}\); sum \(= \frac{16/81}{5/9} = \frac{16}{45}\).</p></div>
+          </details>
+</div></li>
+        <li><span class="plabel">(c)</span><div><div class="prompt">\(\displaystyle \sum_{n=1}^{\infty}\left(\frac{3}{n} - \frac{3}{n+2}\right)\)</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p class="ans">\(\frac{9}{2}\)</p><p class="why">Telescoping: \(S_N = 3\left(1 + \frac{1}{2} - \frac{1}{N+1} - \frac{1}{N+2}\right) \to \frac{9}{2}\).</p></div>
+          </details>
+</div></li>
+        <li><span class="plabel">(d)</span><div><div class="prompt">\(\displaystyle \sum_{n=2}^{\infty}\frac{2}{n(n-1)}\) <span class="method">(Hint: \(\frac{1}{n(n-1)} = \frac{1}{n-1} - \frac{1}{n}\))</span></div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p class="ans">\(2\)</p><p class="why">Telescoping: \(\frac{2}{n(n-1)} = 2\left(\frac{1}{n-1} - \frac{1}{n}\right)\), so \(S_N = 2\left(1 - \frac{1}{N}\right) \to 2\).</p></div>
+          </details>
+</div></li>
+      </ol>
+    </article>
+    </div>
+  </section>
+  <section class="section" id="tests">
+    <div class="section-head"><span class="eyebrow">Problem 15</span></div>
+    <h2>Choosing a convergence test</h2>
+    <div class="instructions"></div>
+    <div class="plist">
+    <article class="prob" id="p15">
+      <div class="prob-top"><a class="pnum" href="#p15">15</a><button type="button" class="mark" aria-pressed="false" aria-label="Mark problem 15 as done"><span class="box"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.2 5 8.6 9.6 3.6" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="t-todo">Mark done</span><span class="t-done">Done</span></button></div>
+      <div class="prompt">Determine whether the following series converge or diverge. Specify which tests you would use to make your conclusions. Show all work necessary for the tests you choose, and make sure you check the conditions for using the test.</div>
+      <ol class="parts">
+        <li><span class="plabel">(a)</span><div><div class="prompt">\(\displaystyle \sum_{n=1}^{\infty}\frac{n-1}{2n-1}\)</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p class="ans">Diverges (Divergence Test).</p><p class="why">\(\lim \frac{n-1}{2n-1} = \frac{1}{2} \ne 0\).</p></div>
+          </details>
+</div></li>
+        <li><span class="plabel">(b)</span><div><div class="prompt">\(\displaystyle \sum_{n=1}^{\infty}\frac{\sqrt{n^3+1}}{3n^3+4n^2+2}\)</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p class="ans">Converges (Limit Comparison Test).</p><p class="why">Compare with \(b_n = \frac{1}{n^{3/2}}\): \(\frac{a_n}{b_n} \to \frac{1}{3}\), and \(\sum \frac{1}{n^{3/2}}\) converges (\(p = \frac{3}{2} \gt 1\)).</p></div>
+          </details>
+</div></li>
+        <li><span class="plabel">(c)</span><div><div class="prompt">\(\displaystyle \sum_{n=1}^{\infty} n e^{-n^2}\) <span class="method">(use the integral test and a \(u\)-substitution)</span></div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p class="ans">Converges (Integral Test).</p><p class="why">\(f(x) = xe^{-x^2}\) is positive, continuous, and decreasing for \(x \ge 1\); with \(u = x^2\), \(\int_1^\infty xe^{-x^2}\,dx = \frac{1}{2e}\).</p></div>
+          </details>
+</div></li>
+        <li><span class="plabel">(d)</span><div><div class="prompt">\(\displaystyle \sum_{n=1}^{\infty}(-1)^n\frac{n^3}{n^4+1}\)</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p class="ans">Converges (Alternating Series Test).</p><p class="why">\(b_n = \frac{n^3}{n^4+1}\) is positive, eventually decreasing, and \(b_n \to 0\).</p></div>
+          </details>
+</div></li>
+        <li><span class="plabel">(e)</span><div><div class="prompt">\(\displaystyle \sum_{n=1}^{\infty}\frac{2^n}{n!}\)</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p class="ans">Converges (Ratio Test).</p><p class="why">\(\frac{a_{n+1}}{a_n} = \frac{2}{n+1} \to 0 \lt 1\).</p></div>
+          </details>
+</div></li>
+        <li><span class="plabel">(f)</span><div><div class="prompt">\(\displaystyle \sum_{n=1}^{\infty}\frac{1}{2+3^n}\)</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p class="ans">Converges (Comparison Test).</p><p class="why">\(\frac{1}{2+3^n} \lt \frac{1}{3^n}\), a convergent geometric series.</p></div>
+          </details>
+</div></li>
+        <li><span class="plabel">(g)</span><div><div class="prompt">\(\displaystyle \sum_{n=1}^{\infty}\frac{(-3)^{n+1}}{2^{3n}}\)</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p class="ans">Converges (geometric).</p><p class="why">\(\frac{(-3)^{n+1}}{8^n} = -3\left(-\frac{3}{8}\right)^n\), geometric with \(|r| = \frac{3}{8} \lt 1\). (Its sum is \(\frac{9}{11}\).)</p></div>
+          </details>
+</div></li>
+        <li><span class="plabel">(h)</span><div><div class="prompt">\(\displaystyle \sum_{n=2}^{\infty}\frac{1}{n\sqrt{\ln n}}\)</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p class="ans">Diverges (Integral Test).</p><p class="why">With \(u = \ln x\), \(\int_2^\infty \frac{dx}{x\sqrt{\ln x}} = \int_{\ln 2}^\infty u^{-1/2}\,du = \infty\).</p></div>
+          </details>
+</div></li>
+        <li><span class="plabel">(i)</span><div><div class="prompt">\(\displaystyle \sum_{n=2}^{\infty}\frac{(-1)^n}{n\ln n}\)</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p class="ans">Converges (Alternating Series Test).</p><p class="why">\(b_n = \frac{1}{n\ln n}\) is positive, decreasing, and \(b_n \to 0\).</p></div>
+          </details>
+</div></li>
+        <li><span class="plabel">(j)</span><div><div class="prompt">\(\displaystyle \sum_{n=1}^{\infty}\frac{n^2+1}{n^3+1}\)</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p class="ans">Diverges (Limit Comparison Test).</p><p class="why">Compare with \(\frac{1}{n}\): the ratio \(\to 1\), and the harmonic series diverges.</p></div>
+          </details>
+</div></li>
+        <li><span class="plabel">(k)</span><div><div class="prompt">\(\displaystyle \sum_{n=1}^{\infty}\frac{n^2+1}{n^4+1}\)</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p class="ans">Converges (Limit Comparison Test).</p><p class="why">Compare with \(\frac{1}{n^2}\): the ratio \(\to 1\), and \(\sum \frac{1}{n^2}\) converges.</p></div>
+          </details>
+</div></li>
+        <li><span class="plabel">(l)</span><div><div class="prompt">\(\displaystyle \sum_{n=1}^{\infty}(-1)^n\frac{n^2+1}{n^3+1}\)</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p class="ans">Converges (Alternating Series Test).</p><p class="why">\(b_n = \frac{n^2+1}{n^3+1}\) is positive, eventually decreasing, and \(b_n \to 0\).</p></div>
+          </details>
+</div></li>
+        <li><span class="plabel">(m)</span><div><div class="prompt">\(\displaystyle \sum_{n=1}^{\infty}\frac{n}{n + n\cos^2 n}\)</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p class="ans">Diverges (Divergence Test).</p><p class="why">\(\frac{n}{n + n\cos^2 n} = \frac{1}{1 + \cos^2 n} \ge \frac{1}{2}\), so the terms do not approach 0.</p></div>
+          </details>
+</div></li>
+        <li><span class="plabel">(n)</span><div><div class="prompt">\(\displaystyle \sum_{n=1}^{\infty}\frac{\arctan n}{n\sqrt{n}}\)</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p class="ans">Converges (Limit Comparison Test).</p><p class="why">Compare with \(\frac{1}{n^{3/2}}\): the ratio \(= \arctan n \to \frac{\pi}{2}\). (Direct comparison also works: \(\arctan n \lt \frac{\pi}{2}\).)</p></div>
+          </details>
+</div></li>
+        <li><span class="plabel">(o)</span><div><div class="prompt">\(\displaystyle \sum_{n=1}^{\infty}\frac{5^n}{3^n+4^n}\)</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p class="ans">Diverges (Comparison Test).</p><p class="why">\(\frac{5^n}{3^n+4^n} \ge \frac{5^n}{2\cdot 4^n} = \frac{1}{2}\left(\frac{5}{4}\right)^n\), a divergent geometric series. (The terms even grow without bound.)</p></div>
+          </details>
+</div></li>
+        <li><span class="plabel">(p)</span><div><div class="prompt">\(\displaystyle \sum_{n=1}^{\infty}\frac{n+5}{5^n}\)</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p class="ans">Converges (Ratio Test).</p><p class="why">\(\frac{a_{n+1}}{a_n} = \frac{n+6}{5(n+5)} \to \frac{1}{5} \lt 1\).</p></div>
+          </details>
+</div></li>
+      </ol>
+    </article>
+    </div>
+  </section>
+  <section class="section" id="absolute">
+    <div class="section-head"><span class="eyebrow">Problem 16</span></div>
+    <h2>Absolute and conditional convergence</h2>
+    <div class="instructions"></div>
+    <div class="plist">
+    <article class="prob" id="p16">
+      <div class="prob-top"><a class="pnum" href="#p16">16</a><button type="button" class="mark" aria-pressed="false" aria-label="Mark problem 16 as done"><span class="box"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.2 5 8.6 9.6 3.6" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="t-todo">Mark done</span><span class="t-done">Done</span></button></div>
+      <div class="prompt">Determine whether the following series diverge, converge conditionally, or converge absolutely.</div>
+      <ol class="parts">
+        <li><span class="plabel">(a)</span><div><div class="prompt">\(\displaystyle \sum_{n=1}^{\infty}\frac{\cos n}{n^5}\)</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p class="ans">Converges absolutely.</p><p class="why">\(\left|\frac{\cos n}{n^5}\right| \le \frac{1}{n^5}\), a convergent \(p\)-series.</p></div>
+          </details>
+</div></li>
+        <li><span class="plabel">(b)</span><div><div class="prompt">\(\displaystyle \sum_{n=3}^{\infty}(-1)^n\frac{5}{n-2}\)</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p class="ans">Converges conditionally.</p><p class="why">Converges by the Alternating Series Test, but \(\sum \frac{5}{n-2}\) diverges (limit comparison with \(\frac{1}{n}\)).</p></div>
+          </details>
+</div></li>
+        <li><span class="plabel">(c)</span><div><div class="prompt">\(\displaystyle \sum_{n=2}^{\infty}(-1)^n\frac{1}{n\ln n}\)</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p class="ans">Converges conditionally.</p><p class="why">Converges by the Alternating Series Test, but \(\sum \frac{1}{n\ln n}\) diverges by the Integral Test.</p></div>
+          </details>
+</div></li>
+        <li><span class="plabel">(d)</span><div><div class="prompt">\(\displaystyle \sum_{n=1}^{\infty}\frac{n!}{100^n}\)</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p class="ans">Diverges.</p><p class="why">Ratio Test: \(\frac{a_{n+1}}{a_n} = \frac{n+1}{100} \to \infty\). (So the terms do not approach 0.)</p></div>
+          </details>
+</div></li>
+        <li><span class="plabel">(e)</span><div><div class="prompt">\(\displaystyle \sum_{n=1}^{\infty}(-1)^n\frac{e^{1/n}}{n^3}\)</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p class="ans">Converges absolutely.</p><p class="why">\(\frac{e^{1/n}}{n^3}\): limit comparison with \(\frac{1}{n^3}\) (ratio \(e^{1/n} \to 1\)).</p></div>
+          </details>
+</div></li>
+        <li><span class="plabel">(f)</span><div><div class="prompt">\(\displaystyle \sum_{n=1}^{\infty}\frac{10^n}{(n+1)4^{2n+1}}\)</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p class="ans">Converges absolutely.</p><p class="why">Ratio Test: \(\frac{a_{n+1}}{a_n} = \frac{10(n+1)}{16(n+2)} \to \frac{5}{8} \lt 1\).</p></div>
+          </details>
+</div></li>
+        <li><span class="plabel">(g)</span><div><div class="prompt">\(\displaystyle \sum_{n=1}^{\infty}\left(\frac{-2n}{n+1}\right)^{5n}\)</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p class="ans">Diverges.</p><p class="why">Root Test: \(\sqrt[n]{|a_n|} = \left(\frac{2n}{n+1}\right)^5 \to 32 \gt 1\).</p></div>
+          </details>
+</div></li>
+        <li><span class="plabel">(h)</span><div><div class="prompt">\(\displaystyle \sum_{n=1}^{\infty}\left(1 + \frac{1}{n}\right)^{n^2}\)</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p class="ans">Diverges.</p><p class="why">Root Test: \(\sqrt[n]{a_n} = \left(1 + \frac{1}{n}\right)^n \to e \gt 1\).</p></div>
+          </details>
+</div></li>
+        <li><span class="plabel">(i)</span><div><div class="prompt">\(\displaystyle \sum_{n=1}^{\infty}\frac{2^{n^2}}{n!}\)</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p class="ans">Diverges.</p><p class="why">Ratio Test: \(\frac{a_{n+1}}{a_n} = \frac{2^{(n+1)^2 - n^2}}{n+1} = \frac{2^{2n+1}}{n+1} \to \infty\).</p></div>
+          </details>
+</div></li>
+      </ol>
+    </article>
+    </div>
+  </section>
+  <section class="section" id="challenge">
+    <div class="section-head"><span class="eyebrow">Problem 17</span></div>
+    <h2>A challenge</h2>
+    <div class="instructions"></div>
+    <div class="plist">
+    <article class="prob" id="p17">
+      <div class="prob-top"><a class="pnum" href="#p17">17</a><button type="button" class="mark" aria-pressed="false" aria-label="Mark problem 17 as done"><span class="box"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.2 5 8.6 9.6 3.6" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="t-todo">Mark done</span><span class="t-done">Done</span></button></div>
+      <div class="prompt">For which positive integers \(k\) is the following series convergent? \(\displaystyle\sum_{n=1}^\infty \frac{(n!)^2}{(kn)!}\)</div>
+      <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+        <div class="sol-body"><p><strong>\(k \ge 2\).</strong></p><p>Ratio Test: \(\dfrac{a_{n+1}}{a_n} = \dfrac{(n+1)^2}{(kn+1)(kn+2)\cdots(kn+k)}\).</p><p>For \(k = 1\) this is \(n + 1 \to \infty\) (diverges). For \(k = 2\) it tends to \(\frac{1}{4} \lt 1\). For \(k \ge 3\) the denominator has degree \(k \gt 2\), so it tends to \(0\).</p></div>
+      </details>
+    </article>
+    </div>
+  </section>
+
+<nav class="pager" aria-label="Other study guides"><a class="prev" href="exam2.html"><small>Previous</small>Exam 2 · Applications of integration</a><a class="next" href="final.html"><small>Next</small>Final Exam · Power series, parametric, polar</a></nav>
+  </main>
+</div>
+<footer class="site-foot"><div class="inner"><span>MAT 137 Calculus II · Northern Arizona University</span><span>Your &ldquo;done&rdquo; marks are saved only in this browser.</span></div></footer>
+</body>
+</html>

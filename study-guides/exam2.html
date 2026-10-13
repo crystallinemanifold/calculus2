@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Exam 2 Study Guide · MAT 137 Calculus II</title>
+<meta name="description" content="MAT 137 Calculus II Exam 2 study guide: practice problems with drop-down solutions.">
+<script>try{var t=JSON.parse(localStorage.getItem("mat137-sg:theme"));if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t);}catch(e){}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/guide.css">
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(', '\\)']],
+    displayMath: [['\\[', '\\]'], ['$$', '$$']],
+    macros: {
+      ds: '\\displaystyle',
+      abs: ['\\left|#1\\right|', 1],
+      dd: '\\,d'
+    }
+  }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+<script defer src="assets/guide.js"></script>
+</head>
+<body data-guide="exam2">
+<header class="masthead">
+  <div class="masthead-inner">
+    <div class="crumbs"><a href="index.html">MAT 137 Calculus II · Study Guides</a><span class="sep">/</span><span>Exam 2</span></div>
+    <h1>Exam 2 Study Guide</h1>
+    <p class="lede">Applications of integration and an introduction to differential equations.</p>
+    <ul class="chips"><li>Area between curves</li><li>Volume: disks, washers, shells</li><li>Work</li><li>Hydrostatic force</li><li>Average value</li><li>Arc length</li><li>Slope fields</li><li>Separable equations</li><li>Initial value problems</li></ul>
+  </div>
+</header>
+<div class="toolbar">
+  <div class="toolbar-inner">
+    <div class="progress"><span class="progress-label"><b>0</b> of 24 problems marked done</span><span class="bar"><span></span></span></div>
+    <div class="tools">
+      <button type="button" class="btn" data-action="expand">Show all solutions</button>
+      <button type="button" class="btn" data-action="collapse">Hide all solutions</button>
+      <button type="button" class="btn" data-action="reset" title="Clear the done marks on this page">Reset progress</button>
+      <button type="button" class="btn icon" data-action="theme" title="Switch light / dark" aria-label="Switch light or dark theme"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M13.2 10.1A5.6 5.6 0 0 1 5.9 2.8a5.6 5.6 0 1 0 7.3 7.3Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></button>
+    </div>
+  </div>
+</div>
+<div class="layout">
+  <nav class="toc" aria-label="Sections">
+    <p class="toc-title">On this page</p>
+    <ol><li><a href="#area-volume"><span>Area and volume</span><span class="count">0/4</span></a></li><li><a href="#arc-average"><span>Arc length and average value</span><span class="count">0/4</span></a></li><li><a href="#work"><span>Work</span><span class="count">0/5</span></a></li><li><a href="#hydrostatic"><span>Hydrostatic force</span><span class="count">0/5</span></a></li><li><a href="#unbounded-volume"><span>Volume of an unbounded region</span><span class="count">0/1</span></a></li><li><a href="#diffeq"><span>Differential equations</span><span class="count">0/5</span></a></li></ol>
+    <div class="toc-foot"><a href="index.html">&larr; All study guides</a></div>
+  </nav>
+  <main>
+
+<div class="panel">
+  <h2>What the exam covers</h2>
+  <p>Area between curves, volume, work, hydrostatic force, average value, arc length, differential equations, slope fields, separable equations, and initial value problems.</p>
+  <p>On the exam, some questions will ask you to <strong>set up</strong> an integral (without calculating its value), while other questions will ask you to find the value of the integral. For volume questions, be prepared to use both disks/washers and cylindrical shells.</p>
+  <p class="tip">Try each problem before opening its solution. Where both methods work, the solution shows the washer and shell set-ups side by side.</p>
+</div>
+
+  <section class="section" id="area-volume">
+    <div class="section-head"><span class="eyebrow">Problems 1–4</span></div>
+    <h2>Area and volume</h2>
+    <div class="instructions"></div>
+    <div class="plist">
+    <article class="prob" id="p1">
+      <div class="prob-top"><a class="pnum" href="#p1">1</a><button type="button" class="mark" aria-pressed="false" aria-label="Mark problem 1 as done"><span class="box"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.2 5 8.6 9.6 3.6" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="t-todo">Mark done</span><span class="t-done">Done</span></button></div>
+      <div class="prompt">Consider the bounded region enclosed by \(y = 3x\) and \(y = x^2\).</div>
+      <ol class="parts">
+        <li><span class="plabel">(a)</span><div><div class="prompt">Sketch a graph of this region.</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p>The curves meet where \(x^2 = 3x\), at \(x = 0\) and \(x = 3\); the line is on top.</p><figure class="fig"><img src="images/E2SGfig1.png" alt="Region between y = 3x (top) and y = x squared (bottom) for x from 0 to 3" style="max-width:150px" loading="lazy"></figure></div>
+          </details>
+</div></li>
+        <li><span class="plabel">(b)</span><div><div class="prompt">Set up an integral to find the area of this region.</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p>\(\displaystyle \int_0^3 \left(3x - x^2\right)dx\)</p></div>
+          </details>
+</div></li>
+        <li><span class="plabel">(c)</span><div><div class="prompt">Set up an integral to find the volume of the solid obtained when this region is rotated around the \(y\)-axis.</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p><span class='label'>Shells</span>\(\displaystyle \int_0^3 2\pi x\left(3x - x^2\right)dx\)</p><p><span class='label'>Washers</span>\(\displaystyle \int_0^9 \pi\left(\left(\sqrt{y}\right)^2 - \left(\frac{y}{3}\right)^2\right)dy\)</p></div>
+          </details>
+</div></li>
+        <li><span class="plabel">(d)</span><div><div class="prompt">Set up an integral to find the volume of the solid obtained when this region is rotated around the \(x\)-axis.</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p><span class='label'>Washers</span>\(\displaystyle \int_0^3 \pi\left((3x)^2 - \left(x^2\right)^2\right)dx\)</p><p><span class='label'>Shells</span>\(\displaystyle \int_0^9 2\pi y\left(\sqrt{y} - \frac{y}{3}\right)dy\)</p></div>
+          </details>
+</div></li>
+        <li><span class="plabel">(e)</span><div><div class="prompt">Set up an integral to find the volume of the solid obtained when this region is rotated around the line \(x = 4\).</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p><span class='label'>Shells</span>\(\displaystyle \int_0^3 2\pi(4 - x)\left(3x - x^2\right)dx\)</p><p><span class='label'>Washers</span>\(\displaystyle \int_0^9 \pi\left(\left(4 - \frac{y}{3}\right)^2 - \left(4 - \sqrt{y}\right)^2\right)dy\)</p></div>
+          </details>
+</div></li>
+        <li><span class="plabel">(f)</span><div><div class="prompt">Set up an integral to find the volume of the solid obtained when this region is rotated around the line \(y = 10\).</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p><span class='label'>Washers</span>\(\displaystyle \int_0^3 \pi\left(\left(10 - x^2\right)^2 - (10 - 3x)^2\right)dx\)</p><p><span class='label'>Shells</span>\(\displaystyle \int_0^9 2\pi(10 - y)\left(\sqrt{y} - \frac{y}{3}\right)dy\)</p></div>
+          </details>
+</div></li>
+      </ol>
+    </article>
+    <article class="prob" id="p2">
+      <div class="prob-top"><a class="pnum" href="#p2">2</a><button type="button" class="mark" aria-pressed="false" aria-label="Mark problem 2 as done"><span class="box"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.2 5 8.6 9.6 3.6" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="t-todo">Mark done</span><span class="t-done">Done</span></button></div>
+      <div class="prompt">Consider the bounded region enclosed by \(y = e^x - 1\), \(y = x^2 - x\), and \(x = 1\).</div>
+      <ol class="parts">
+        <li><span class="plabel">(a)</span><div><div class="prompt">Sketch a graph of this region.</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p>Both curves pass through the origin; on \(0 \le x \le 1\) the curve \(y = e^x - 1\) is on top.</p><figure class="fig"><img src="images/E2SGfig2.png" alt="Region between y = e^x - 1 (top) and y = x squared minus x (bottom) for x from 0 to 1" style="max-width:220px" loading="lazy"></figure></div>
+          </details>
+</div></li>
+        <li><span class="plabel">(b)</span><div><div class="prompt">Set up an integral to find the area of this region.</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p>\(\displaystyle \int_0^1 \left(e^x - 1 - \left(x^2 - x\right)\right)dx\)</p></div>
+          </details>
+</div></li>
+        <li><span class="plabel">(c)</span><div><div class="prompt">Set up an integral to find the volume of the solid obtained when this region is rotated around the \(y\)-axis.</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p><span class='label'>Shells</span>\(\displaystyle \int_0^1 2\pi x\left(e^x - 1 - \left(x^2 - x\right)\right)dx\)</p></div>
+          </details>
+</div></li>
+        <li><span class="plabel">(d)</span><div><div class="prompt">Set up an integral to find the volume of the solid obtained when this region is rotated around the line \(x = 2\).</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p><span class='label'>Shells</span>\(\displaystyle \int_0^1 2\pi(2 - x)\left(e^x - 1 - \left(x^2 - x\right)\right)dx\)</p></div>
+          </details>
+</div></li>
+        <li><span class="plabel">(e)</span><div><div class="prompt">Set up an integral to find the volume of the solid obtained when this region is rotated around the line \(y = -1\).</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p><span class='label'>Washers</span>\(\displaystyle \int_0^1 \pi\left(\left(e^x - 1 + 1\right)^2 - \left(x^2 - x + 1\right)^2\right)dx\)</p></div>
+          </details>
+</div></li>
+      </ol>
+    </article>
+    <article class="prob" id="p3">
+      <div class="prob-top"><a class="pnum" href="#p3">3</a><button type="button" class="mark" aria-pressed="false" aria-label="Mark problem 3 as done"><span class="box"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.2 5 8.6 9.6 3.6" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="t-todo">Mark done</span><span class="t-done">Done</span></button></div>
+      <div class="prompt">Consider the solid whose base is the bounded region enclosed by \(y = \sqrt{x}\), the \(x\)-axis, and \(x = 4\). Cross-sections perpendicular to the \(x\)-axis are equilateral triangles. Find the volume of the solid.</div>
+      <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+        <div class="sol-body"><p>An equilateral triangle with side \(s = \sqrt{x}\) has area \(\frac{\sqrt{3}}{4}s^2 = \frac{\sqrt{3}}{4}x\).</p><p>\(\displaystyle V = \int_0^4 \frac{\sqrt{3}}{4}\,x\,dx = 2\sqrt{3}\)</p></div>
+      </details>
+    </article>
+    <article class="prob" id="p4">
+      <div class="prob-top"><a class="pnum" href="#p4">4</a><button type="button" class="mark" aria-pressed="false" aria-label="Mark problem 4 as done"><span class="box"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.2 5 8.6 9.6 3.6" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="t-todo">Mark done</span><span class="t-done">Done</span></button></div>
+      <div class="prompt">Consider the solid whose base is the region enclosed by the ellipse \(144 = 16x^2 + 9y^2\). Cross-sections perpendicular to the \(x\)-axis are squares. Find the volume of the solid.</div>
+      <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+        <div class="sol-body"><p>The side of the square at \(x\) is \(2y = \frac{8}{3}\sqrt{9 - x^2}\), so its area is \(\frac{64}{9}(9 - x^2)\).</p><p>\(\displaystyle V = \int_{-3}^{3}\left(64 - \frac{64}{9}x^2\right)dx = 256\)</p></div>
+      </details>
+    </article>
+    </div>
+  </section>
+  <section class="section" id="arc-average">
+    <div class="section-head"><span class="eyebrow">Problems 5–8</span></div>
+    <h2>Arc length and average value</h2>
+    <div class="instructions"></div>
+    <div class="plist">
+    <article class="prob" id="p5">
+      <div class="prob-top"><a class="pnum" href="#p5">5</a><button type="button" class="mark" aria-pressed="false" aria-label="Mark problem 5 as done"><span class="box"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.2 5 8.6 9.6 3.6" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="t-todo">Mark done</span><span class="t-done">Done</span></button></div>
+      <div class="prompt">Use calculus to find the arc length of the curve \(y = \sqrt{2 - x^2}\), \(0 \le x \le \sqrt{2}\).</div>
+      <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+        <div class="sol-body"><p>\(\displaystyle L = \int_0^{\sqrt{2}}\sqrt{1 + \frac{x^2}{2 - x^2}}\,dx = \int_0^{\sqrt{2}}\frac{\sqrt{2}}{\sqrt{2 - x^2}}\,dx = \frac{\pi}{\sqrt{2}}\)</p><p>(Check: this is a quarter of a circle of radius \(\sqrt{2}\).)</p></div>
+      </details>
+    </article>
+    <article class="prob" id="p6">
+      <div class="prob-top"><a class="pnum" href="#p6">6</a><button type="button" class="mark" aria-pressed="false" aria-label="Mark problem 6 as done"><span class="box"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.2 5 8.6 9.6 3.6" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="t-todo">Mark done</span><span class="t-done">Done</span></button></div>
+      <div class="prompt">Find the exact length of the curve (using calculus).</div>
+      <ol class="parts">
+        <li><span class="plabel">(a)</span><div><div class="prompt">\(y = \dfrac{x^3}{3} + \dfrac{1}{4x}\), \(1 \le x \le 2\)</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p>\(1 + (y')^2 = \left(x^2 + \frac{1}{4x^2}\right)^2\), a perfect square.</p><p>\(\displaystyle L = \int_1^2\left(x^2 + \frac{1}{4x^2}\right)dx = \frac{59}{24}\)</p></div>
+          </details>
+</div></li>
+        <li><span class="plabel">(b)</span><div><div class="prompt">\(x = \dfrac{1}{3}\sqrt{y}\,(y - 3)\), \(1 \le y \le 9\)</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p>\(1 + (x')^2 = \frac{1}{4}\left(y^{1/2} + y^{-1/2}\right)^2\).</p><p>\(\displaystyle L = \int_1^9 \frac{1}{2}\left(y^{1/2} + y^{-1/2}\right)dy = \frac{32}{3}\)</p></div>
+          </details>
+</div></li>
+        <li><span class="plabel">(c)</span><div><div class="prompt">\(y = \ln(\sec x)\), \(0 \le x \le \dfrac{\pi}{4}\)</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p>\(y' = \tan x\), so \(\sqrt{1 + \tan^2 x} = \sec x\).</p><p>\(\displaystyle L = \int_0^{\pi/4}\sec x\,dx = \ln\!\left(1 + \sqrt{2}\right) = -\frac{1}{2}\ln\!\left(3 - 2\sqrt{2}\right)\)</p></div>
+          </details>
+</div></li>
+      </ol>
+    </article>
+    <article class="prob" id="p7">
+      <div class="prob-top"><a class="pnum" href="#p7">7</a><button type="button" class="mark" aria-pressed="false" aria-label="Mark problem 7 as done"><span class="box"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.2 5 8.6 9.6 3.6" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="t-todo">Mark done</span><span class="t-done">Done</span></button></div>
+      <div class="prompt">Set up an integral to find the average value of the function \(f(x) = \tan x\) on the interval \(\left[0, \frac{\pi}{4}\right]\).</div>
+      <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+        <div class="sol-body"><p>\(\displaystyle f_{\text{ave}} = \frac{4}{\pi}\int_0^{\pi/4}\tan x\,dx\)</p><p>(Its value is \(\frac{4}{\pi}\ln\sqrt{2} = \frac{2\ln 2}{\pi}\).)</p></div>
+      </details>
+    </article>
+    <article class="prob" id="p8">
+      <div class="prob-top"><a class="pnum" href="#p8">8</a><button type="button" class="mark" aria-pressed="false" aria-label="Mark problem 8 as done"><span class="box"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.2 5 8.6 9.6 3.6" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="t-todo">Mark done</span><span class="t-done">Done</span></button></div>
+      <div class="prompt">Set up an integral to find the average value of the function \(f(x) = \sqrt{x^2 + x + 1}\) on the interval \([1, 5]\).</div>
+      <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+        <div class="sol-body"><p>\(\displaystyle f_{\text{ave}} = \frac{1}{4}\int_1^5\sqrt{x^2 + x + 1}\,dx\)</p></div>
+      </details>
+    </article>
+    </div>
+  </section>
+  <section class="section" id="work">
+    <div class="section-head"><span class="eyebrow">Problems 9–13</span></div>
+    <h2>Work</h2>
+    <div class="instructions"></div>
+    <div class="plist">
+    <article class="prob" id="p9">
+      <div class="prob-top"><a class="pnum" href="#p9">9</a><button type="button" class="mark" aria-pressed="false" aria-label="Mark problem 9 as done"><span class="box"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.2 5 8.6 9.6 3.6" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="t-todo">Mark done</span><span class="t-done">Done</span></button></div>
+      <div class="prompt">If 12 J of work are needed to stretch a spring 20 cm beyond equilibrium, how much work is required to compress it 6 cm beyond equilibrium?</div>
+      <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+        <div class="sol-body"><p>\(12 = \int_0^{0.2} kx\,dx = 0.02k\), so \(k = 600\) N/m.</p><p>\(\displaystyle W = \int_0^{0.06} 600x\,dx = 1.08 \text{ J}\)</p></div>
+      </details>
+    </article>
+    <article class="prob" id="p10">
+      <div class="prob-top"><a class="pnum" href="#p10">10</a><button type="button" class="mark" aria-pressed="false" aria-label="Mark problem 10 as done"><span class="box"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.2 5 8.6 9.6 3.6" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="t-todo">Mark done</span><span class="t-done">Done</span></button></div>
+      <div class="prompt">A spring whose equilibrium length is 15 cm exerts a force of 50 N when it is stretched to 20 cm. Find the work required to stretch the spring from 22 cm to 24 cm.</div>
+      <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+        <div class="sol-body"><p>\(50 = k(0.05)\), so \(k = 1000\) N/m. Measure \(x\) from equilibrium: 22 cm and 24 cm are \(x = 0.07\) and \(x = 0.09\).</p><p>\(\displaystyle W = \int_{0.07}^{0.09} 1000x\,dx = 1.6 \text{ J}\)</p></div>
+      </details>
+    </article>
+    <article class="prob" id="p11">
+      <div class="prob-top"><a class="pnum" href="#p11">11</a><button type="button" class="mark" aria-pressed="false" aria-label="Mark problem 11 as done"><span class="box"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.2 5 8.6 9.6 3.6" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="t-todo">Mark done</span><span class="t-done">Done</span></button></div>
+      <div class="prompt">Water is pumped into a spherical tank of radius 2 m from a source located 1 m below a hole at the bottom.</div>
+<figure class="fig"><img src="images/tank.png" alt="Spherical tank of radius 2 m with the water source 1 m below the bottom" loading="lazy" style="max-width:240px"></figure>      <ol class="parts">
+        <li><span class="plabel">(a)</span><div><div class="prompt">Calculate the work required to fill the tank.</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p>Let \(y\) be height above the bottom of the tank. A slice at height \(y\) has area \(\pi(4y - y^2)\) and is lifted \(y + 1\) meters.</p><p>\(\displaystyle W = \rho g\pi\int_0^4 (y + 1)\left(4y - y^2\right)dy = 32\rho g\pi \text{ J} \approx 985{,}203 \text{ J}\)</p></div>
+          </details>
+</div></li>
+        <li><span class="plabel">(b)</span><div><div class="prompt">Calculate the work \(W(h)\) required to fill the tank to level \(h\) meters in the sphere (\(h = 0\) is the bottom of the tank).</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p>\(\displaystyle W(h) = \rho g\pi\int_0^h (y + 1)\left(4y - y^2\right)dy = \rho g\pi\left(2h^2 + h^3 - \frac{h^4}{4}\right)\)</p></div>
+          </details>
+</div></li>
+      </ol>
+    </article>
+    <article class="prob" id="p12">
+      <div class="prob-top"><a class="pnum" href="#p12">12</a><button type="button" class="mark" aria-pressed="false" aria-label="Mark problem 12 as done"><span class="box"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.2 5 8.6 9.6 3.6" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="t-todo">Mark done</span><span class="t-done">Done</span></button></div>
+      <div class="prompt">A tank of mass 20 kg containing 100 kg of water is raised vertically at a constant speed of 100 m/min for 1 min, during which time it leaks water at a rate of 40 kg/min. Calculate the total work performed in raising the container.</div>
+      <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+        <div class="sol-body"><p>At height \(y\) the elapsed time is \(y/100\) min, so the mass is \(20 + 100 - 40\cdot\frac{y}{100} = 120 - 0.4y\) kg.</p><p>\(\displaystyle W = \int_0^{100}(120 - 0.4y)\,g\,dy = 10000g \text{ J} \approx 98{,}000 \text{ J}\)</p></div>
+      </details>
+    </article>
+    <article class="prob" id="p13">
+      <div class="prob-top"><a class="pnum" href="#p13">13</a><button type="button" class="mark" aria-pressed="false" aria-label="Mark problem 13 as done"><span class="box"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.2 5 8.6 9.6 3.6" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="t-todo">Mark done</span><span class="t-done">Done</span></button></div>
+      <div class="prompt">A bucket of mass \(A\) kilograms is used to lift water out of a well with a depth of \(B\) meters. The bucket is pulled up by a rope with mass \(C\) kilograms. The bucket is lifted at a constant velocity of \(D\) meters per second. The bucket initially contains \(E\) kilograms of water, but the water leaks out at \(F\) kilograms per second. <strong>Set up the integral</strong> to find the total work required to lift the bucket out of the well; be sure to address the possibility that the bucket may be empty before it reaches the top.</div>
+      <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+        <div class="sol-body"><p>Measure \(y\) as depth below the top of the well. The bucket starts at \(y = B\); when it is at depth \(y\) it has been rising for \(\frac{B - y}{D}\) seconds.</p><p>\(\displaystyle W_{\text{bucket}} = ABg, \qquad W_{\text{rope}} = \int_0^B \frac{C}{B}\,g\,y\,dy\)</p><p>If \(E \lt \frac{FB}{D}\), the bucket runs out of water before reaching the top, at depth \(B - \frac{DE}{F}\):</p><p>\(\displaystyle W_{\text{water}} = \int_{B - \frac{DE}{F}}^{B}\left(E - F\,\frac{B - y}{D}\right)g\,dy\)</p><p>If \(E \ge \frac{FB}{D}\):</p><p>\(\displaystyle W_{\text{water}} = \int_0^B\left(E - F\,\frac{B - y}{D}\right)g\,dy\)</p><p>Total work: \(W = W_{\text{bucket}} + W_{\text{rope}} + W_{\text{water}}\).</p></div>
+      </details>
+    </article>
+    </div>
+  </section>
+  <section class="section" id="hydrostatic">
+    <div class="section-head"><span class="eyebrow">Problems 14–18</span></div>
+    <h2>Hydrostatic force</h2>
+    <div class="instructions"></div>
+    <div class="plist">
+    <article class="prob" id="p14">
+      <div class="prob-top"><a class="pnum" href="#p14">14</a><button type="button" class="mark" aria-pressed="false" aria-label="Mark problem 14 as done"><span class="box"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.2 5 8.6 9.6 3.6" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="t-todo">Mark done</span><span class="t-done">Done</span></button></div>
+      <div class="prompt">A plate in the shape of an isosceles triangle with base 1 m and height 2 m is submerged vertically in a tank of water so that its vertex touches the surface of the water (see the figure). Use \(\rho = 1000\) kg/m<sup>3</sup> and \(g = 9.8\) m/s<sup>2</sup>.</div>
+<figure class="fig"><img src="images/hf1_triangle_at_surface.png" alt="Triangular plate with its vertex at the water surface; a horizontal strip of width f(y) at depth y" loading="lazy" style="max-width:360px"></figure>      <ol class="parts">
+        <li><span class="plabel">(a)</span><div><div class="prompt">Show that the width of the triangle at depth \(y\) is \(f(y) = \frac{1}{2}y\).</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p>By similar triangles, \(\frac{f(y)}{y} = \frac{1}{2}\), so \(f(y) = \frac{1}{2}y\).</p></div>
+          </details>
+</div></li>
+        <li><span class="plabel">(b)</span><div><div class="prompt">Consider a thin horizontal strip of thickness \(\Delta y\) at depth \(y\). Explain why the fluid force on one side of this strip is approximately \(\rho g\,\frac{1}{2}y^2\,\Delta y\).</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p>The pressure at depth \(y\) is \(\rho g y\), and the strip's area is about \(f(y)\,\Delta y = \frac{1}{2}y\,\Delta y\). Force \(=\) pressure \(\times\) area \(\approx \rho g y\cdot\frac{1}{2}y\,\Delta y = \rho g\,\frac{1}{2}y^2\,\Delta y\).</p></div>
+          </details>
+</div></li>
+        <li><span class="plabel">(c)</span><div><div class="prompt">Write a Riemann sum that approximates the total fluid force \(F\) on one side of the plate, and identify the integral it converges to.</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p>\(\displaystyle F \approx \sum_{j=1}^{N}\rho g\,\frac{y_j^2}{2}\,\Delta y \;\longrightarrow\; \frac{\rho g}{2}\int_0^2 y^2\,dy \quad (N \to \infty)\)</p></div>
+          </details>
+</div></li>
+        <li><span class="plabel">(d)</span><div><div class="prompt">Calculate \(F\).</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p>\(\displaystyle F = \frac{39200}{3} \approx 13{,}067 \text{ N}\)</p></div>
+          </details>
+</div></li>
+      </ol>
+    </article>
+    <article class="prob" id="p15">
+      <div class="prob-top"><a class="pnum" href="#p15">15</a><button type="button" class="mark" aria-pressed="false" aria-label="Mark problem 15 as done"><span class="box"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.2 5 8.6 9.6 3.6" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="t-todo">Mark done</span><span class="t-done">Done</span></button></div>
+      <div class="prompt">Repeat Problem 14, but assume that the vertex (top) of the triangle is located 3 m below the surface of the water.</div>
+<figure class="fig"><img src="images/hf2_triangle_3m_down.png" alt="Triangular plate with its vertex 3 m below the water surface" loading="lazy" style="max-width:300px"></figure>      <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+        <div class="sol-body"><p>(a) \(f(y) = \frac{1}{2}(y - 3)\) for \(3 \le y \le 5\).</p><p>(b) Strip force \(\approx \rho g y\cdot\frac{1}{2}(y - 3)\,\Delta y = \frac{1}{2}\rho g\,y(y - 3)\,\Delta y\).</p><p>(c) \(\displaystyle F \approx \sum_{j=1}^{N}\rho g\,\frac{y_j^2 - 3y_j}{2}\,\Delta y \;\longrightarrow\; \frac{\rho g}{2}\int_3^5\left(y^2 - 3y\right)dy\)</p><p>(d) \(\displaystyle F = \frac{127400}{3} \approx 42{,}467 \text{ N}\)</p></div>
+      </details>
+    </article>
+    <article class="prob" id="p16">
+      <div class="prob-top"><a class="pnum" href="#p16">16</a><button type="button" class="mark" aria-pressed="false" aria-label="Mark problem 16 as done"><span class="box"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.2 5 8.6 9.6 3.6" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="t-todo">Mark done</span><span class="t-done">Done</span></button></div>
+      <div class="prompt">The plate \(R\) bounded by the parabola \(y = x^2\) and the line \(y = 1\) is submerged vertically in water, with the water surface at \(y = 1\) (distances in meters).</div>
+<figure class="fig"><img src="images/hf3_parabola_plate.png" alt="Parabolic plate R between y = x squared and y = 1, with the water surface at y = 1" loading="lazy" style="max-width:420px"></figure>      <ol class="parts">
+        <li><span class="plabel">(a)</span><div><div class="prompt">Show that the width of \(R\) at height \(y\) is \(f(y) = 2\sqrt{y}\) and that the fluid force on one side of a horizontal strip of thickness \(\Delta y\) at height \(y\) is approximately \(\rho g\,2y^{1/2}(1 - y)\,\Delta y\).</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p>At height \(y\) the plate runs from \(x = -\sqrt{y}\) to \(x = \sqrt{y}\), so its width is \(2\sqrt{y}\). The water surface is at \(y = 1\), so the strip is at depth \(1 - y\). Force \(\approx \rho g(1 - y)\cdot 2\sqrt{y}\,\Delta y\).</p></div>
+          </details>
+</div></li>
+        <li><span class="plabel">(b)</span><div><div class="prompt">Write a Riemann sum that approximates the fluid force \(F\) on one side of \(R\), and use it to explain why \(\displaystyle F = \rho g\int_0^1 2y^{1/2}(1 - y)\,dy\).</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p>\(\displaystyle F \approx \sum_{j=1}^{N}\rho g\,2\sqrt{y_j}\,(1 - y_j)\,\Delta y\)</p><p>which converges to the integral as \(N \to \infty\).</p></div>
+          </details>
+</div></li>
+        <li><span class="plabel">(c)</span><div><div class="prompt">Calculate \(F\).</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p>\(\displaystyle F = \frac{8}{15}\rho g = \frac{15680}{3} \approx 5{,}227 \text{ N}\)</p></div>
+          </details>
+</div></li>
+      </ol>
+    </article>
+    <article class="prob" id="p17">
+      <div class="prob-top"><a class="pnum" href="#p17">17</a><button type="button" class="mark" aria-pressed="false" aria-label="Mark problem 17 as done"><span class="box"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.2 5 8.6 9.6 3.6" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="t-todo">Mark done</span><span class="t-done">Done</span></button></div>
+      <div class="prompt">A plate extending from depth \(y = 2\) m to \(y = 5\) m is submerged in a fluid of density \(\rho = 850\) kg/m<sup>3</sup>. The horizontal width of the plate at depth \(y\) is \(f(y) = 2(1 + y^2)^{-1}\). Calculate the fluid force on one side of the plate.</div>
+      <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+        <div class="sol-body"><p>\(\displaystyle F = \rho g\int_2^5 y\cdot\frac{2}{1 + y^2}\,dy = 8330\ln\frac{26}{5} \approx 13{,}733 \text{ N}\)</p></div>
+      </details>
+    </article>
+    <article class="prob" id="p18">
+      <div class="prob-top"><a class="pnum" href="#p18">18</a><button type="button" class="mark" aria-pressed="false" aria-label="Mark problem 18 as done"><span class="box"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.2 5 8.6 9.6 3.6" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="t-todo">Mark done</span><span class="t-done">Done</span></button></div>
+      <div class="prompt">Find the fluid force on one side of the plate shown below, submerged in a fluid of density \(\rho = 1200\) kg/m<sup>3</sup>. The top of the plate is level with the fluid surface, and the edges of the plate are the curves \(y = x^{1/3}\) and \(y = -x^{1/3}\) (distances in meters).</div>
+<figure class="fig"><img src="images/hf4_cusp_plate.png" alt="Plate bounded by y = x to the 1/3 and y = minus x to the 1/3, top at the fluid surface y = 2" loading="lazy" style="max-width:460px"></figure>      <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+        <div class="sol-body"><p>At height \(y\) the plate runs from \(x = -y^3\) to \(x = y^3\), so the width is \(2y^3\); the depth is \(2 - y\).</p><p>\(\displaystyle F = \rho g\int_0^2(2 - y)\left(2y^3\right)dy = \frac{16\rho g}{5} = 37{,}632 \text{ N}\)</p></div>
+      </details>
+    </article>
+    </div>
+  </section>
+  <section class="section" id="unbounded-volume">
+    <div class="section-head"><span class="eyebrow">Problem 19</span></div>
+    <h2>Volume of an unbounded region</h2>
+    <div class="instructions"></div>
+    <div class="plist">
+    <article class="prob" id="p19">
+      <div class="prob-top"><a class="pnum" href="#p19">19</a><button type="button" class="mark" aria-pressed="false" aria-label="Mark problem 19 as done"><span class="box"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.2 5 8.6 9.6 3.6" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="t-todo">Mark done</span><span class="t-done">Done</span></button></div>
+      <div class="prompt">Find the volume of the solid formed by revolving the unbounded region between \(y = \dfrac{1}{1 + x^2}\) and the \(x\)-axis about the \(x\)-axis.</div>
+      <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+        <div class="sol-body"><p>\(\displaystyle V = \pi\int_{-\infty}^{\infty}\frac{dx}{(1 + x^2)^2} = \frac{\pi^2}{2}\)</p><p>(Use \(x = \tan\theta\): \(\int_{-\pi/2}^{\pi/2}\cos^2\theta\,d\theta = \frac{\pi}{2}\).)</p></div>
+      </details>
+    </article>
+    </div>
+  </section>
+  <section class="section" id="diffeq">
+    <div class="section-head"><span class="eyebrow">Problems 20–24</span></div>
+    <h2>Differential equations</h2>
+    <div class="instructions"></div>
+    <div class="plist">
+    <article class="prob" id="p20">
+      <div class="prob-top"><a class="pnum" href="#p20">20</a><button type="button" class="mark" aria-pressed="false" aria-label="Mark problem 20 as done"><span class="box"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.2 5 8.6 9.6 3.6" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="t-todo">Mark done</span><span class="t-done">Done</span></button></div>
+      <div class="prompt">Consider the differential equation \(y' = y(y - 2)(y - 4)\).</div>
+      <ol class="parts">
+        <li><span class="plabel">(a)</span><div><div class="prompt">Sketch (roughly) the slope field for the equation.</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p>Equilibrium solutions: \(y = 0\), \(y = 2\), \(y = 4\) (horizontal slopes).</p><p>Slopes are positive for \(0 \lt y \lt 2\) and \(y \gt 4\), and negative for \(y \lt 0\) and \(2 \lt y \lt 4\). See the figure in part (b).</p></div>
+          </details>
+</div></li>
+        <li><span class="plabel">(b)</span><div><div class="prompt">Sketch the graphs of the solutions that satisfy the given initial conditions.<ol class="sublist"><li>\(y(0) = -0.3\)</li><li>\(y(0) = 1\)</li><li>\(y(0) = 3\)</li><li>\(y(0) = 4.3\)</li></ol></div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution to (a) and (b)</span><span class="when-open">Hide solution to (a) and (b)</span></summary>
+            <div class="sol-body"><figure class="fig"><img src="images/slope-sol.jpg" alt="Slope field for y prime = y(y-2)(y-4) with the four solution curves" style="max-width:420px" loading="lazy"></figure></div>
+          </details>
+</div></li>
+        <li><span class="plabel">(c)</span><div><div class="prompt">If the initial condition is \(y(0) = c\), for what values of \(c\) is \(\displaystyle\lim_{t\to\infty}y(t)\) finite? What are these finite limits?</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p>If \(0 \lt c \lt 4\), then \(\displaystyle\lim_{t\to\infty}y(t) = 2\). If \(c = 0\) or \(c = 4\), then \(\displaystyle\lim_{t\to\infty}y(t) = c\).</p><p>For \(c \lt 0\) or \(c \gt 4\), the solution is unbounded.</p></div>
+          </details>
+</div></li>
+      </ol>
+    </article>
+    <article class="prob" id="p21">
+      <div class="prob-top"><a class="pnum" href="#p21">21</a><button type="button" class="mark" aria-pressed="false" aria-label="Mark problem 21 as done"><span class="box"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.2 5 8.6 9.6 3.6" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="t-todo">Mark done</span><span class="t-done">Done</span></button></div>
+      <div class="prompt">Solve the initial value problem.</div>
+      <ol class="parts">
+        <li><span class="plabel">(a)</span><div><div class="prompt">\(y' = x/y\), \(y(0) = -3\)</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p>\(y\,dy = x\,dx \Rightarrow y^2 = x^2 + 9\); choose the negative root because \(y(0) \lt 0\).</p><p>\(\displaystyle y = -\sqrt{x^2 + 9}\)</p></div>
+          </details>
+</div></li>
+        <li><span class="plabel">(b)</span><div><div class="prompt">\(\dfrac{dy}{dx} = \dfrac{\ln x}{xy}\), \(y(1) = 2\)</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p>\(y\,dy = \frac{\ln x}{x}\,dx \Rightarrow \frac{y^2}{2} = \frac{(\ln x)^2}{2} + C\).</p><p>\(\displaystyle y = \sqrt{(\ln x)^2 + 4}\)</p></div>
+          </details>
+</div></li>
+        <li><span class="plabel">(c)</span><div><div class="prompt">\(y' = \dfrac{xy\sin x}{y + 1}\), \(y(0) = 1\)</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p>\(\left(1 + \frac{1}{y}\right)dy = x\sin x\,dx\) (integrate the right side by parts).</p><p>\(\displaystyle y + \ln|y| = -x\cos x + \sin x + 1\)</p></div>
+          </details>
+</div></li>
+        <li><span class="plabel">(d)</span><div><div class="prompt">\(\dfrac{dP}{dt} = \sqrt{Pt}\), \(P(1) = 2\)</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p>\(P^{-1/2}\,dP = t^{1/2}\,dt \Rightarrow 2\sqrt{P} = \frac{2}{3}t^{3/2} + C\).</p><p>\(\displaystyle P(t) = \left(\frac{1}{3}t^{3/2} + \sqrt{2} - \frac{1}{3}\right)^2\)</p></div>
+          </details>
+</div></li>
+      </ol>
+    </article>
+    <article class="prob" id="p22">
+      <div class="prob-top"><a class="pnum" href="#p22">22</a><button type="button" class="mark" aria-pressed="false" aria-label="Mark problem 22 as done"><span class="box"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.2 5 8.6 9.6 3.6" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="t-todo">Mark done</span><span class="t-done">Done</span></button></div>
+      <div class="prompt">Find the orthogonal trajectories of the family of curves.</div>
+      <ol class="parts">
+        <li><span class="plabel">(a)</span><div><div class="prompt">\(x^2 + 2y^2 = k^2\)</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p>\(y' = -\frac{x}{2y}\), so orthogonal curves satisfy \(y' = \frac{2y}{x}\).</p><p>\(\displaystyle y = cx^2\)</p></div>
+          </details>
+</div></li>
+        <li><span class="plabel">(b)</span><div><div class="prompt">\(y^2 = kx^3\)</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p>\(y' = \frac{3y}{2x}\), so orthogonal curves satisfy \(y' = -\frac{2x}{3y}\).</p><p>\(\displaystyle x^2 + \frac{3}{2}y^2 = c\)</p></div>
+          </details>
+</div></li>
+      </ol>
+    </article>
+    <article class="prob" id="p23">
+      <div class="prob-top"><a class="pnum" href="#p23">23</a><button type="button" class="mark" aria-pressed="false" aria-label="Mark problem 23 as done"><span class="box"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.2 5 8.6 9.6 3.6" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="t-todo">Mark done</span><span class="t-done">Done</span></button></div>
+      <div class="prompt">Find a value of \(c\) such that \(y = x - 2 + e^{cx}\) is a solution of \(2y' + y = x\).</div>
+      <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+        <div class="sol-body"><p>\(2y' + y = 2(1 + ce^{cx}) + x - 2 + e^{cx} = x + (2c + 1)e^{cx}\), which equals \(x\) when \(2c + 1 = 0\).</p><p>\(\displaystyle c = -\frac{1}{2}\)</p></div>
+      </details>
+    </article>
+    <article class="prob" id="p24">
+      <div class="prob-top"><a class="pnum" href="#p24">24</a><button type="button" class="mark" aria-pressed="false" aria-label="Mark problem 24 as done"><span class="box"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.2 5 8.6 9.6 3.6" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="t-todo">Mark done</span><span class="t-done">Done</span></button></div>
+      <div class="prompt">At \(t = 0\), a tank of volume 300 L is filled with 100 L of water containing salt at a concentration of 8 g/L. Fresh water flows in at a rate of 40 L/min, mixes instantaneously, and exits at the same rate. Let \(c_1(t)\) be the salt concentration at time \(t\).</div>
+      <ol class="parts">
+        <li><span class="plabel">(a)</span><div><div class="prompt">Find a differential equation satisfied by \(c_1(t)\). <em>Hint:</em> find the differential equation for the quantity of salt \(y(t)\), and observe that \(c_1(t) = \frac{y(t)}{100}\).</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p>Salt leaves at \(40\cdot\frac{y}{100}\) g/min, so \(y' = -0.4y\). Dividing by 100:</p><p>\(\displaystyle c_1' = -0.4\,c_1\)</p></div>
+          </details>
+</div></li>
+        <li><span class="plabel">(b)</span><div><div class="prompt">Find the salt concentration \(c_1(t)\) in the tank as a function of time.</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p>\(\displaystyle c_1(t) = 8e^{-0.4t} \text{ g/L}\)</p></div>
+          </details>
+</div></li>
+      </ol>
+    </article>
+    </div>
+  </section>
+
+<nav class="pager" aria-label="Other study guides"><a class="prev" href="exam1.html"><small>Previous</small>Exam 1 · Techniques of integration</a><a class="next" href="exam3.html"><small>Next</small>Exam 3 · Sequences and series</a></nav>
+  </main>
+</div>
+<footer class="site-foot"><div class="inner"><span>MAT 137 Calculus II · Northern Arizona University</span><span>Your &ldquo;done&rdquo; marks are saved only in this browser.</span></div></footer>
+</body>
+</html>

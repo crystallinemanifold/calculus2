@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Final Exam Study Guide · MAT 137 Calculus II</title>
+<meta name="description" content="MAT 137 Calculus II Final Exam study guide: practice problems with drop-down solutions.">
+<script>try{var t=JSON.parse(localStorage.getItem("mat137-sg:theme"));if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t);}catch(e){}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/guide.css">
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(', '\\)']],
+    displayMath: [['\\[', '\\]'], ['$$', '$$']],
+    macros: {
+      ds: '\\displaystyle',
+      abs: ['\\left|#1\\right|', 1],
+      dd: '\\,d'
+    }
+  }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+<script defer src="assets/guide.js"></script>
+</head>
+<body data-guide="final">
+<header class="masthead">
+  <div class="masthead-inner">
+    <div class="crumbs"><a href="index.html">MAT 137 Calculus II · Study Guides</a><span class="sep">/</span><span>Final Exam</span></div>
+    <h1>Final Exam Study Guide</h1>
+    <p class="lede">Power series, Taylor series, parametric equations, and polar coordinates.</p>
+    <ul class="chips"><li>Radius &amp; interval of convergence</li><li>Power series representations</li><li>Taylor &amp; Maclaurin series</li><li>Taylor polynomials &amp; error</li><li>Parametric curves</li><li>Tangents, area &amp; arc length</li><li>Polar coordinates</li></ul>
+  </div>
+</header>
+<div class="toolbar">
+  <div class="toolbar-inner">
+    <div class="progress"><span class="progress-label"><b>0</b> of 42 problems marked done</span><span class="bar"><span></span></span></div>
+    <div class="tools">
+      <button type="button" class="btn" data-action="expand">Show all solutions</button>
+      <button type="button" class="btn" data-action="collapse">Hide all solutions</button>
+      <button type="button" class="btn" data-action="reset" title="Clear the done marks on this page">Reset progress</button>
+      <button type="button" class="btn icon" data-action="theme" title="Switch light / dark" aria-label="Switch light or dark theme"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M13.2 10.1A5.6 5.6 0 0 1 5.9 2.8a5.6 5.6 0 1 0 7.3 7.3Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></button>
+    </div>
+  </div>
+</div>
+<div class="layout">
+  <nav class="toc" aria-label="Sections">
+    <p class="toc-title">On this page</p>
+    <ol><li><a href="#interval"><span>Radius and interval of convergence</span><span class="count">0/2</span></a></li><li><a href="#representations"><span>Power series representations</span><span class="count">0/5</span></a></li><li><a href="#maclaurin"><span>Maclaurin and Taylor series</span><span class="count">0/8</span></a></li><li><a href="#taylor"><span>More Taylor series and the remainder</span><span class="count">0/11</span></a></li><li><a href="#parametric"><span>Parametric equations</span><span class="count">0/9</span></a></li><li><a href="#polar"><span>Polar coordinates</span><span class="count">0/7</span></a></li></ol>
+    <div class="toc-foot"><a href="index.html">&larr; All study guides</a></div>
+  </nav>
+  <main>
+
+<div class="panel">
+  <h2>What you should know and be able to do</h2>
+  <ul>
+    <li>Understand what a power series is and find its radius and interval of convergence.</li>
+    <li>Use algebra, integrals, or derivatives of a known power series to find the power series of a new function.</li>
+    <li>Find a Taylor or Maclaurin series using the definition, and using a known Maclaurin series.</li>
+    <li>Find a Taylor or Maclaurin polynomial.</li>
+    <li>Graph a curve given by parametric equations; parametrize lines, ellipses, and graphs of functions.</li>
+    <li>Given a parametric curve, find the tangent line at a point, the area under the curve, and the length of the curve.</li>
+    <li>Convert between polar and rectangular coordinates, and plot polar curves.</li>
+  </ul>
+  <p class="tip">Earlier material is covered in the <a href="exam1.html">Exam 1</a>, <a href="exam2.html">Exam 2</a>, and <a href="exam3.html">Exam 3</a> guides. The series tests are summarized in the reference panels below.</p>
+</div>
+<details class="panel ref" id="reference">
+  <summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> Reference: series convergence tests</summary>
+  <div class="table-wrap">
+  <table class="reftable">
+    <thead><tr><th>Test</th><th>Series</th><th>Conclusion</th></tr></thead>
+    <tbody>
+      <tr><th>Divergence Test</th><td>\(\sum a_n\)</td><td>If \(\lim_{n\to\infty} a_n \neq 0\) (or does not exist), the series diverges. If the limit is \(0\), the test says nothing.</td></tr>
+      <tr><th>Geometric series</th><td>\(\displaystyle\sum_{n=1}^\infty ar^{n-1}\)</td><td>Converges if \(|r| \lt 1\), with sum \(\dfrac{a}{1-r}\); diverges if \(|r| \ge 1\).</td></tr>
+      <tr><th>\(p\)-series</th><td>\(\displaystyle\sum_{n=1}^\infty \frac{1}{n^p}\)</td><td>Converges if \(p \gt 1\); diverges if \(p \le 1\).</td></tr>
+      <tr><th>Integral Test</th><td>\(a_n = f(n)\), \(f\) continuous, positive, decreasing</td><td>\(\sum a_n\) and \(\int_1^\infty f(x)\,dx\) both converge or both diverge.</td></tr>
+      <tr><th>Comparison</th><td>\(0 \le a_n \le b_n\)</td><td>If \(\sum b_n\) converges, so does \(\sum a_n\). If \(\sum a_n\) diverges, so does \(\sum b_n\).</td></tr>
+      <tr><th>Limit Comparison</th><td>\(a_n, b_n \gt 0\), \(\lim\limits_{n\to\infty}\dfrac{a_n}{b_n} = L\)</td><td>If \(0 \lt L \lt \infty\), both series converge or both diverge.</td></tr>
+      <tr><th>Alternating Series Test</th><td>\(\sum (-1)^n b_n\), \(b_n \gt 0\)</td><td>If \(b_n\) is decreasing and \(\lim b_n = 0\), the series converges.</td></tr>
+      <tr><th>Absolute convergence</th><td>\(\sum a_n\)</td><td>If \(\sum |a_n|\) converges, then \(\sum a_n\) converges (absolutely). Convergent but not absolutely convergent means <em>conditionally</em> convergent.</td></tr>
+      <tr><th>Ratio Test</th><td>\(\lim\limits_{n\to\infty}\left|\dfrac{a_{n+1}}{a_n}\right| = L\)</td><td>\(L \lt 1\): converges absolutely. \(L \gt 1\): diverges. \(L = 1\): inconclusive.</td></tr>
+      <tr><th>Root Test</th><td>\(\lim\limits_{n\to\infty}\sqrt[n]{|a_n|} = L\)</td><td>\(L \lt 1\): converges absolutely. \(L \gt 1\): diverges. \(L = 1\): inconclusive.</td></tr>
+    </tbody>
+  </table>
+  </div>
+</details>
+<details class="panel ref" id="maclaurin">
+  <summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> Reference: Taylor series and known Maclaurin series</summary>
+  <p>Taylor series of \(f\) centered at \(x = a\): \(\displaystyle T(x) = \sum_{n=0}^\infty \frac{f^{(n)}(a)}{n!}(x-a)^n\). The Maclaurin series is the case \(a = 0\).</p>
+  <div class="table-wrap">
+  <table class="reftable">
+    <thead><tr><th>Function</th><th>Maclaurin series</th><th>Interval of convergence</th></tr></thead>
+    <tbody>
+      <tr><th>\(\dfrac{1}{1-x}\)</th><td>\(\displaystyle\sum_{n=0}^\infty x^n = 1 + x + x^2 + \cdots\)</td><td>\((-1, 1)\)</td></tr>
+      <tr><th>\(e^x\)</th><td>\(\displaystyle\sum_{n=0}^\infty \frac{x^n}{n!} = 1 + x + \frac{x^2}{2!} + \cdots\)</td><td>\((-\infty, \infty)\)</td></tr>
+      <tr><th>\(\sin x\)</th><td>\(\displaystyle\sum_{n=0}^\infty (-1)^n\frac{x^{2n+1}}{(2n+1)!} = x - \frac{x^3}{3!} + \cdots\)</td><td>\((-\infty, \infty)\)</td></tr>
+      <tr><th>\(\cos x\)</th><td>\(\displaystyle\sum_{n=0}^\infty (-1)^n\frac{x^{2n}}{(2n)!} = 1 - \frac{x^2}{2!} + \cdots\)</td><td>\((-\infty, \infty)\)</td></tr>
+      <tr><th>\(\tan^{-1} x\)</th><td>\(\displaystyle\sum_{n=0}^\infty (-1)^n\frac{x^{2n+1}}{2n+1} = x - \frac{x^3}{3} + \cdots\)</td><td>\([-1, 1]\)</td></tr>
+      <tr><th>\(\ln(1+x)\)</th><td>\(\displaystyle\sum_{n=1}^\infty (-1)^{n-1}\frac{x^n}{n} = x - \frac{x^2}{2} + \cdots\)</td><td>\((-1, 1]\)</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="tip">Lagrange remainder: if \(|f^{(n+1)}(x)| \le M\) between \(a\) and \(x\), then \(\displaystyle |f(x) - T_n(x)| \le \frac{M\,|x-a|^{n+1}}{(n+1)!}\).</p>
+</details>
+  <section class="section" id="interval">
+    <div class="section-head"><span class="eyebrow">Problems 1–2</span></div>
+    <h2>Radius and interval of convergence</h2>
+    <div class="instructions"></div>
+    <div class="plist">
+    <article class="prob" id="p1">
+      <div class="prob-top"><a class="pnum" href="#p1">1</a><button type="button" class="mark" aria-pressed="false" aria-label="Mark problem 1 as done"><span class="box"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.2 5 8.6 9.6 3.6" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="t-todo">Mark done</span><span class="t-done">Done</span></button></div>
+      <div class="prompt">Find the radius and interval of convergence of the following power series. Check the endpoints and state any tests used and your reasoning.</div>
+      <ol class="parts">
+        <li><span class="plabel">(a)</span><div><div class="prompt">\(\displaystyle \sum_{n=1}^\infty \frac{x^n}{\sqrt[9]{n}}\)</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p>Ratio Test gives \(R = 1\).</p><p>At \(x = 1\): \(\sum \frac{1}{n^{1/9}}\) diverges (\(p\)-series, \(p = \frac{1}{9} \le 1\)). At \(x = -1\): \(\sum \frac{(-1)^n}{n^{1/9}}\) converges (Alternating Series Test).</p><p>Interval of convergence: \([-1, 1)\).</p></div>
+          </details>
+</div></li>
+        <li><span class="plabel">(b)</span><div><div class="prompt">\(\displaystyle \sum_{n=1}^\infty \frac{(7x)^n}{n^3}\)</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p>\(R = \frac{1}{7}\). At both endpoints the series of absolute values is \(\sum \frac{1}{n^3}\), which converges (\(p = 3\)).</p><p>Interval of convergence: \(\left[-\frac{1}{7}, \frac{1}{7}\right]\).</p></div>
+          </details>
+</div></li>
+        <li><span class="plabel">(c)</span><div><div class="prompt">\(\displaystyle \sum_{n=5}^\infty \frac{(7x)^n}{n!}\)</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p>Ratio Test: \(\displaystyle\lim_{n\to\infty}\frac{7|x|}{n+1} = 0 \lt 1\) for every \(x\).</p><p>\(R = \infty\); interval of convergence: \((-\infty, \infty)\).</p></div>
+          </details>
+</div></li>
+        <li><span class="plabel">(d)</span><div><div class="prompt">\(\displaystyle \sum_{n=1}^\infty \frac{(x-9)^n}{n(-9)^n}\)</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p>Center \(9\), \(R = 9\).</p><p>At \(x = 0\): \(\sum \frac{(-9)^n}{n(-9)^n} = \sum \frac{1}{n}\) diverges. At \(x = 18\): \(\sum \frac{(-1)^n}{n}\) converges (Alternating Series Test).</p><p>Interval of convergence: \((0, 18]\).</p></div>
+          </details>
+</div></li>
+        <li><span class="plabel">(e)</span><div><div class="prompt">\(\displaystyle \sum_{n=1}^\infty \frac{(n+1)!\,(x-5)^n}{7^{n-4}}\)</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p>Ratio Test: \(\displaystyle\frac{(n+2)|x-5|}{7} \to \infty\) unless \(x = 5\).</p><p>\(R = 0\); the series converges only at \(x = 5\).</p></div>
+          </details>
+</div></li>
+      </ol>
+    </article>
+    <article class="prob" id="p2">
+      <div class="prob-top"><a class="pnum" href="#p2">2</a><button type="button" class="mark" aria-pressed="false" aria-label="Mark problem 2 as done"><span class="box"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.2 5 8.6 9.6 3.6" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="t-todo">Mark done</span><span class="t-done">Done</span></button></div>
+      <div class="prompt">Determine the interval of convergence of the following power series.</div>
+      <ol class="parts">
+        <li><span class="plabel">(a)</span><div><div class="prompt">\(\displaystyle \sum_{n=1}^{\infty}\frac{(3x-1)^n}{3^n}\)</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p>Geometric with ratio \(\frac{3x-1}{3}\): converges when \(|3x - 1| \lt 3\), i.e. \(-\frac{2}{3} \lt x \lt \frac{4}{3}\) (center \(\frac{1}{3}\), \(R = 1\)).</p><p>At both endpoints the terms are \((\pm 1)^n\), which do not approach 0, so both diverge.</p><p>Interval of convergence: \(\left(-\frac{2}{3}, \frac{4}{3}\right)\).</p></div>
+          </details>
+</div></li>
+        <li><span class="plabel">(b)</span><div><div class="prompt">\(\displaystyle \sum_{n=1}^{\infty}\frac{(3x-1)^n}{n\,3^n}\)</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p>\(R = 1\) (center \(\frac{1}{3}\)). At \(x = -\frac{2}{3}\): \(\sum \frac{(-1)^n}{n}\) converges (AST). At \(x = \frac{4}{3}\): \(\sum \frac{1}{n}\) diverges.</p><p>Interval of convergence: \(\left[-\frac{2}{3}, \frac{4}{3}\right)\).</p></div>
+          </details>
+</div></li>
+        <li><span class="plabel">(c)</span><div><div class="prompt">\(\displaystyle \sum_{n=1}^{\infty}(-1)^n\frac{(3x-1)^n}{n\,3^n}\)</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p>\(R = 1\) (center \(\frac{1}{3}\)). At \(x = -\frac{2}{3}\): \(\sum \frac{1}{n}\) diverges. At \(x = \frac{4}{3}\): \(\sum \frac{(-1)^n}{n}\) converges (AST).</p><p>Interval of convergence: \(\left(-\frac{2}{3}, \frac{4}{3}\right]\).</p></div>
+          </details>
+</div></li>
+      </ol>
+    </article>
+    </div>
+  </section>
+  <section class="section" id="representations">
+    <div class="section-head"><span class="eyebrow">Problems 3–7</span></div>
+    <h2>Power series representations</h2>
+    <div class="instructions"></div>
+    <div class="plist">
+    <article class="prob" id="p3">
+      <div class="prob-top"><a class="pnum" href="#p3">3</a><button type="button" class="mark" aria-pressed="false" aria-label="Mark problem 3 as done"><span class="box"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.2 5 8.6 9.6 3.6" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="t-todo">Mark done</span><span class="t-done">Done</span></button></div>
+      <div class="prompt">Represent \(\displaystyle f(x) = \frac{9}{1 - 5x}\) as a power series.</div>
+      <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+        <div class="sol-body">\[f(x) = \sum_{n=0}^{\infty} 9\cdot 5^n x^n, \qquad |x| \lt \tfrac{1}{5}\]</div>
+      </details>
+    </article>
+    <article class="prob" id="p4">
+      <div class="prob-top"><a class="pnum" href="#p4">4</a><button type="button" class="mark" aria-pressed="false" aria-label="Mark problem 4 as done"><span class="box"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.2 5 8.6 9.6 3.6" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="t-todo">Mark done</span><span class="t-done">Done</span></button></div>
+      <div class="prompt"></div>
+      <ol class="parts">
+        <li><span class="plabel">(a)</span><div><div class="prompt">Represent \(\displaystyle f(x) = \frac{6}{2 + 9x^2}\) as a power series.</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p>\(\frac{6}{2 + 9x^2} = \frac{3}{1 - \left(-\frac{9}{2}x^2\right)}\).</p>\[f(x) = \sum_{n=0}^{\infty}\frac{3(-9)^n}{2^n}\,x^{2n} = 3 - \frac{27}{2}x^2 + \frac{243}{4}x^4 - \frac{2187}{8}x^6 + \cdots\]</div>
+          </details>
+</div></li>
+        <li><span class="plabel">(b)</span><div><div class="prompt">What is the interval of convergence for the series from part (a)?</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p>\(\frac{9}{2}x^2 \lt 1\), so \(\left(-\dfrac{\sqrt{2}}{3}, \dfrac{\sqrt{2}}{3}\right)\).</p></div>
+          </details>
+</div></li>
+        <li><span class="plabel">(c)</span><div><div class="prompt">List the first three coefficients \(a_0\), \(a_1\), and \(a_2\) of the series from part (a).</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p>\(a_0 = 3, \quad a_1 = 0, \quad a_2 = -\frac{27}{2}\).</p></div>
+          </details>
+</div></li>
+        <li><span class="plabel">(d)</span><div><div class="prompt">Use the series from part (a) to find the power series for \(\displaystyle f(x) = \frac{6x^5}{2 + 9x^2}\).</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body">\[f(x) = \sum_{n=0}^{\infty}\frac{3(-9)^n}{2^n}\,x^{2n+5} = 3x^5 - \frac{27}{2}x^7 + \frac{243}{4}x^9 - \cdots\]</div>
+          </details>
+</div></li>
+        <li><span class="plabel">(e)</span><div><div class="prompt">Use the series from part (a) to find the power series for \(\displaystyle f(x) = \frac{6}{x^5(2 + 9x^2)}\).</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body">\[f(x) = \sum_{n=0}^{\infty}\frac{3(-9)^n}{2^n}\,x^{2n-5} = \frac{3}{x^5} - \frac{27}{2x^3} + \frac{243}{4x} - \frac{2187}{8}x + \cdots\]</div>
+          </details>
+</div></li>
+      </ol>
+    </article>
+    <article class="prob" id="p5">
+      <div class="prob-top"><a class="pnum" href="#p5">5</a><button type="button" class="mark" aria-pressed="false" aria-label="Mark problem 5 as done"><span class="box"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.2 5 8.6 9.6 3.6" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="t-todo">Mark done</span><span class="t-done">Done</span></button></div>
+      <div class="prompt">Represent \(f(x) = \ln(1 - 9x)\) as a power series. <em>(Hint: differentiate first.)</em></div>
+      <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+        <div class="sol-body"><p>\(f'(x) = \frac{-9}{1 - 9x} = -\sum_{n=0}^\infty 9^{n+1}x^n\). Integrate and use \(f(0) = 0\):</p>\[\ln(1 - 9x) = -\sum_{n=1}^{\infty}\frac{9^n x^n}{n}, \qquad |x| \lt \tfrac{1}{9}\]</div>
+      </details>
+    </article>
+    <article class="prob" id="p6">
+      <div class="prob-top"><a class="pnum" href="#p6">6</a><button type="button" class="mark" aria-pressed="false" aria-label="Mark problem 6 as done"><span class="box"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.2 5 8.6 9.6 3.6" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="t-todo">Mark done</span><span class="t-done">Done</span></button></div>
+      <div class="prompt">Represent \(\displaystyle f(x) = \frac{1}{(1 + x)^2}\) as a power series. <em>(Hint: integrate first.)</em></div>
+      <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+        <div class="sol-body"><p>\(\int f\,dx = -\frac{1}{1 + x} + C\), and \(\frac{1}{(1+x)^2} = -\frac{d}{dx}\left(\frac{1}{1+x}\right) = -\frac{d}{dx}\sum (-1)^n x^n\).</p>\[f(x) = \sum_{n=0}^{\infty}(-1)^n(n + 1)\,x^n\]</div>
+      </details>
+    </article>
+    <article class="prob" id="p7">
+      <div class="prob-top"><a class="pnum" href="#p7">7</a><button type="button" class="mark" aria-pressed="false" aria-label="Mark problem 7 as done"><span class="box"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.2 5 8.6 9.6 3.6" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="t-todo">Mark done</span><span class="t-done">Done</span></button></div>
+      <div class="prompt">Express the following functions as power series.</div>
+      <ol class="parts">
+        <li><span class="plabel">(a)</span><div><div class="prompt">\(\displaystyle \frac{1}{1 + x^2}\)</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body">\[\sum_{n=0}^{\infty}(-1)^n x^{2n}\]</div>
+          </details>
+</div></li>
+        <li><span class="plabel">(b)</span><div><div class="prompt">\(\displaystyle \frac{x^7}{1 + x^2}\)</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body">\[\sum_{n=0}^{\infty}(-1)^n x^{2n+7}\]</div>
+          </details>
+</div></li>
+        <li><span class="plabel">(c)</span><div><div class="prompt">\(\displaystyle \frac{1}{x^7(1 + x^2)}\)</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body">\[\sum_{n=0}^{\infty}(-1)^n x^{2n-7}\]</div>
+          </details>
+</div></li>
+        <li><span class="plabel">(d)</span><div><div class="prompt">\(\displaystyle \frac{1}{(1 - x)^2}\)</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body">\[\sum_{n=0}^{\infty}(n + 1)x^n\]</div>
+          </details>
+</div></li>
+        <li><span class="plabel">(e)</span><div><div class="prompt">\(\displaystyle \ln(3 + x)\)</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p>\(\ln(3 + x) = \ln 3 + \ln\left(1 + \frac{x}{3}\right)\).</p>\[\ln 3 + \sum_{n=1}^{\infty}\frac{(-1)^{n-1}}{n}\left(\frac{x}{3}\right)^n\]</div>
+          </details>
+</div></li>
+        <li><span class="plabel">(f)</span><div><div class="prompt">\(\displaystyle x^5\ln(3 + x)\)</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body">\[x^5\ln 3 + \sum_{n=1}^{\infty}\frac{(-1)^{n-1}}{n}\cdot\frac{x^{n+5}}{3^n}\]</div>
+          </details>
+</div></li>
+      </ol>
+    </article>
+    </div>
+  </section>
+  <section class="section" id="maclaurin">
+    <div class="section-head"><span class="eyebrow">Problems 8–15</span></div>
+    <h2>Maclaurin and Taylor series</h2>
+    <div class="instructions"></div>
+    <div class="plist">
+    <article class="prob" id="p8">
+      <div class="prob-top"><a class="pnum" href="#p8">8</a><button type="button" class="mark" aria-pressed="false" aria-label="Mark problem 8 as done"><span class="box"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.2 5 8.6 9.6 3.6" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="t-todo">Mark done</span><span class="t-done">Done</span></button></div>
+      <div class="prompt">Consider \(\displaystyle f(x) = \frac{x}{1 + 2x}\).</div>
+      <ol class="parts">
+        <li><span class="plabel">(a)</span><div><div class="prompt">Use a known Maclaurin series to find the Maclaurin series for \(f\).</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body">\[f(x) = \sum_{n=0}^{\infty}(-2)^n x^{n+1}\]</div>
+          </details>
+</div></li>
+        <li><span class="plabel">(b)</span><div><div class="prompt">Find the Maclaurin series for \(\displaystyle\int f(x)\,dx\).</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body">\[C + \sum_{n=0}^{\infty}(-2)^n\frac{x^{n+2}}{n + 2}\]</div>
+          </details>
+</div></li>
+        <li><span class="plabel">(c)</span><div><div class="prompt">Find the Maclaurin series for \(f'(x)\).</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body">\[\sum_{n=0}^{\infty}(-2)^n(n + 1)x^n\]</div>
+          </details>
+</div></li>
+        <li><span class="plabel">(d)</span><div><div class="prompt">Find the Maclaurin polynomial of degree 4 for \(f\).</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body">\[T_4(x) = x - 2x^2 + 4x^3 - 8x^4\]</div>
+          </details>
+</div></li>
+        <li><span class="plabel">(e)</span><div><div class="prompt">Using the Maclaurin series for \(f\), find \(\displaystyle\lim_{x\to 0}\frac{f(x) - x}{x^2}\).</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body">\[\frac{f(x) - x}{x^2} = \frac{-2x^2 + 4x^3 - 8x^4 + \cdots}{x^2} = -2 + 4x - 8x^2 + \cdots \;\longrightarrow\; -2\]</div>
+          </details>
+</div></li>
+      </ol>
+    </article>
+    <article class="prob" id="p9">
+      <div class="prob-top"><a class="pnum" href="#p9">9</a><button type="button" class="mark" aria-pressed="false" aria-label="Mark problem 9 as done"><span class="box"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.2 5 8.6 9.6 3.6" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="t-todo">Mark done</span><span class="t-done">Done</span></button></div>
+      <div class="prompt">Consider \(f(x) = x\sin x\).</div>
+      <ol class="parts">
+        <li><span class="plabel">(a)</span><div><div class="prompt">Use a known Maclaurin series to find the Maclaurin series for \(f\).</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body">\[\sum_{n=0}^{\infty}(-1)^n\frac{x^{2n+2}}{(2n + 1)!}\]</div>
+          </details>
+</div></li>
+        <li><span class="plabel">(b)</span><div><div class="prompt">Find the Maclaurin series for \(\displaystyle\int f(x)\,dx\).</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body">\[C + \sum_{n=0}^{\infty}(-1)^n\frac{x^{2n+3}}{(2n + 3)(2n + 1)!}\]</div>
+          </details>
+</div></li>
+        <li><span class="plabel">(c)</span><div><div class="prompt">Find the Maclaurin series for \(f'(x)\).</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body">\[\sum_{n=0}^{\infty}(-1)^n\frac{2n + 2}{(2n + 1)!}\,x^{2n+1}\]</div>
+          </details>
+</div></li>
+        <li><span class="plabel">(d)</span><div><div class="prompt">Find the Maclaurin polynomial of degree 6 for \(f\).</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body">\[T_6(x) = x^2 - \frac{x^4}{3!} + \frac{x^6}{5!}\]</div>
+          </details>
+</div></li>
+        <li><span class="plabel">(e)</span><div><div class="prompt">Using the Maclaurin series for \(f\), find \(\displaystyle\lim_{x\to 0}\frac{f(x) - x^2}{x^4}\).</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body">\[\frac{f(x) - x^2}{x^4} = -\frac{1}{3!} + \frac{x^2}{5!} - \cdots \;\longrightarrow\; -\frac{1}{6}\]</div>
+          </details>
+</div></li>
+      </ol>
+    </article>
+    <article class="prob" id="p10">
+      <div class="prob-top"><a class="pnum" href="#p10">10</a><button type="button" class="mark" aria-pressed="false" aria-label="Mark problem 10 as done"><span class="box"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.2 5 8.6 9.6 3.6" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="t-todo">Mark done</span><span class="t-done">Done</span></button></div>
+      <div class="prompt">Use a known Maclaurin series to represent the following as a power series of the form \(\sum c_n x^n\) and simplify.</div>
+      <ol class="parts">
+        <li><span class="plabel">(a)</span><div><div class="prompt">\(\displaystyle\cosh x = \frac{e^x + e^{-x}}{2}\) <em>(Hint: write out some terms.)</em></div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p>The odd powers cancel and the even powers double:</p>\[\cosh x = \sum_{n=0}^{\infty}\frac{x^{2n}}{(2n)!}\]</div>
+          </details>
+</div></li>
+        <li><span class="plabel">(b)</span><div><div class="prompt">\(\displaystyle \int\cos(x^2)\,dx\)</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body">\[C + \sum_{n=0}^{\infty}(-1)^n\frac{x^{4n+1}}{(4n + 1)(2n)!}\]</div>
+          </details>
+</div></li>
+      </ol>
+    </article>
+    <article class="prob" id="p11">
+      <div class="prob-top"><a class="pnum" href="#p11">11</a><button type="button" class="mark" aria-pressed="false" aria-label="Mark problem 11 as done"><span class="box"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.2 5 8.6 9.6 3.6" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="t-todo">Mark done</span><span class="t-done">Done</span></button></div>
+      <div class="prompt">Find the degree 3 Taylor polynomial for \(f(x) = (-2x + 16)^{4/3}\) at \(c = 4\).</div>
+      <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+        <div class="sol-body">\[T_3(x) = 16 - \frac{16}{3}(x - 4) + \frac{2}{9}(x - 4)^2 + \frac{1}{81}(x - 4)^3\]</div>
+      </details>
+    </article>
+    <article class="prob" id="p12">
+      <div class="prob-top"><a class="pnum" href="#p12">12</a><button type="button" class="mark" aria-pressed="false" aria-label="Mark problem 12 as done"><span class="box"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.2 5 8.6 9.6 3.6" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="t-todo">Mark done</span><span class="t-done">Done</span></button></div>
+      <div class="prompt">Let \(f(t) = \sin(3t^2)\).</div>
+      <ol class="parts">
+        <li><span class="plabel">(a)</span><div><div class="prompt">Find the degree 10 Maclaurin polynomial for \(f(t)\). <em>Use a known series, not derivatives. Reduce all fractions.</em></div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body">\[T_{10}(t) = 3t^2 - \frac{9}{2}t^6 + \frac{81}{40}t^{10}\]</div>
+          </details>
+</div></li>
+        <li><span class="plabel">(b)</span><div><div class="prompt">Find the Maclaurin series for \(\displaystyle\int_0^x \sin(3t^2)\,dt\).</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body">\[\sum_{n=0}^{\infty}(-1)^n\frac{3^{2n+1}\,x^{4n+3}}{(4n + 3)(2n + 1)!}\]</div>
+          </details>
+</div></li>
+        <li><span class="plabel">(c)</span><div><div class="prompt">Use part (b) to find the degree 11 Maclaurin polynomial for \(\displaystyle\int_0^x \sin(3t^2)\,dt\).</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body">\[T_{11}(x) = x^3 - \frac{9}{14}x^7 + \frac{81}{440}x^{11}\]</div>
+          </details>
+</div></li>
+        <li><span class="plabel">(d)</span><div><div class="prompt">Use part (c) to estimate \(\displaystyle\int_0^{0.6}\sin(3t^2)\,dt\). <em>(Use a calculator for this part only.)</em></div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body">\[T_{11}(0.6) = (0.6)^3 - \frac{9}{14}(0.6)^7 + \frac{81}{440}(0.6)^{11} \approx 0.19867\]</div>
+          </details>
+</div></li>
+      </ol>
+    </article>
+    <article class="prob" id="p13">
+      <div class="prob-top"><a class="pnum" href="#p13">13</a><button type="button" class="mark" aria-pressed="false" aria-label="Mark problem 13 as done"><span class="box"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.2 5 8.6 9.6 3.6" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="t-todo">Mark done</span><span class="t-done">Done</span></button></div>
+      <div class="prompt">Use power series to evaluate \(\displaystyle\lim_{x\to 0}\frac{\cos x - 1 + \frac{x^2}{2}}{8x^4}\).</div>
+      <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+        <div class="sol-body"><p>Substitute \(\cos x = 1 - \frac{x^2}{2} + \frac{x^4}{24} - \cdots\):</p>\[\frac{\frac{x^4}{24} - \frac{x^6}{720} + \cdots}{8x^4} = \frac{1}{192} - \frac{x^2}{5760} + \cdots \;\longrightarrow\; \frac{1}{192}\]</div>
+      </details>
+    </article>
+    <article class="prob" id="p14">
+      <div class="prob-top"><a class="pnum" href="#p14">14</a><button type="button" class="mark" aria-pressed="false" aria-label="Mark problem 14 as done"><span class="box"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.2 5 8.6 9.6 3.6" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="t-todo">Mark done</span><span class="t-done">Done</span></button></div>
+      <div class="prompt">Find the degree 3 Taylor polynomial centered at \(c = 1\) of \(\displaystyle f(x) = \frac{1}{x}\).</div>
+      <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+        <div class="sol-body">\[T_3(x) = 1 - (x - 1) + (x - 1)^2 - (x - 1)^3\]</div>
+      </details>
+    </article>
+    <article class="prob" id="p15">
+      <div class="prob-top"><a class="pnum" href="#p15">15</a><button type="button" class="mark" aria-pressed="false" aria-label="Mark problem 15 as done"><span class="box"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.2 5 8.6 9.6 3.6" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="t-todo">Mark done</span><span class="t-done">Done</span></button></div>
+      <div class="prompt">Find the interval of convergence of \(\displaystyle\sum_{n=1}^{\infty}\frac{(x - 1)^n}{n\,2^n}\).</div>
+      <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+        <div class="sol-body"><p>Center \(1\), \(R = 2\). At \(x = -1\): \(\sum \frac{(-1)^n}{n}\) converges (AST). At \(x = 3\): \(\sum \frac{1}{n}\) diverges.</p><p>Interval of convergence: \([-1, 3)\).</p></div>
+      </details>
+    </article>
+    </div>
+  </section>
+  <section class="section" id="taylor">
+    <div class="section-head"><span class="eyebrow">Problems 16–26</span></div>
+    <h2>More Taylor series and the remainder</h2>
+    <div class="instructions"></div>
+    <div class="plist">
+    <article class="prob" id="p16">
+      <div class="prob-top"><a class="pnum" href="#p16">16</a><button type="button" class="mark" aria-pressed="false" aria-label="Mark problem 16 as done"><span class="box"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.2 5 8.6 9.6 3.6" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="t-todo">Mark done</span><span class="t-done">Done</span></button></div>
+      <div class="prompt">Find the Taylor series for the following functions using the definition; write out the series to a degree 4 polynomial.</div>
+      <ol class="parts">
+        <li><span class="plabel">(a)</span><div><div class="prompt">\(f(x) = \ln(\sec x)\) at \(c = 0\) (Maclaurin series).</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body">\[T_4(x) = \frac{x^2}{2} + \frac{x^4}{12}\]</div>
+          </details>
+</div></li>
+        <li><span class="plabel">(b)</span><div><div class="prompt">\(f(x) = x^3\) at \(c = -1\).</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body">\[T_4(x) = -1 + 3(x + 1) - 3(x + 1)^2 + (x + 1)^3\]</div>
+          </details>
+</div></li>
+        <li><span class="plabel">(c)</span><div><div class="prompt">\(f(x) = \ln x\) at \(c = 2\).</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body">\[T_4(x) = \ln 2 + \frac{x - 2}{2} - \frac{(x - 2)^2}{8} + \frac{(x - 2)^3}{24} - \frac{(x - 2)^4}{64}\]</div>
+          </details>
+</div></li>
+        <li><span class="plabel">(d)</span><div><div class="prompt">\(f(x) = \sin x\) at \(c = \dfrac{\pi}{2}\).</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body">\[T_4(x) = 1 - \frac{1}{2}\left(x - \frac{\pi}{2}\right)^2 + \frac{1}{24}\left(x - \frac{\pi}{2}\right)^4\]</div>
+          </details>
+</div></li>
+      </ol>
+    </article>
+    <article class="prob" id="p17">
+      <div class="prob-top"><a class="pnum" href="#p17">17</a><button type="button" class="mark" aria-pressed="false" aria-label="Mark problem 17 as done"><span class="box"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.2 5 8.6 9.6 3.6" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="t-todo">Mark done</span><span class="t-done">Done</span></button></div>
+      <div class="prompt">Use a known Maclaurin series to find the Maclaurin series of \(f(x) = 7x^2\sin(3x)\).</div>
+      <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+        <div class="sol-body">\[f(x) = \sum_{n=0}^{\infty}(-1)^n\frac{7\cdot 3^{2n+1}\,x^{2n+3}}{(2n + 1)!} = 21x^3 - \frac{63}{2}x^5 + \frac{567}{40}x^7 - \frac{243}{80}x^9 + \cdots\]</div>
+      </details>
+    </article>
+    <article class="prob" id="p18">
+      <div class="prob-top"><a class="pnum" href="#p18">18</a><button type="button" class="mark" aria-pressed="false" aria-label="Mark problem 18 as done"><span class="box"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.2 5 8.6 9.6 3.6" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="t-todo">Mark done</span><span class="t-done">Done</span></button></div>
+      <div class="prompt">The Maclaurin series of \(\tan^{-1}x\) is \(\displaystyle\sum_{n=0}^{\infty}(-1)^n\frac{x^{2n+1}}{2n + 1}\). Find the sum \(\displaystyle\sum_{n=0}^{\infty}(-1)^n\frac{4}{2n + 1}\).</div>
+      <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+        <div class="sol-body"><p>Set \(x = 1\): \(\tan^{-1}1 = \frac{\pi}{4} = \sum (-1)^n\frac{1}{2n + 1}\). Multiply by 4:</p>\[\sum_{n=0}^{\infty}(-1)^n\frac{4}{2n + 1} = \pi\]</div>
+      </details>
+    </article>
+    <article class="prob" id="p19">
+      <div class="prob-top"><a class="pnum" href="#p19">19</a><button type="button" class="mark" aria-pressed="false" aria-label="Mark problem 19 as done"><span class="box"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.2 5 8.6 9.6 3.6" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="t-todo">Mark done</span><span class="t-done">Done</span></button></div>
+      <div class="prompt">What are the sums of the following series?</div>
+      <ol class="parts">
+        <li><span class="plabel">(a)</span><div><div class="prompt">\(\displaystyle \sum_{n=1}^{\infty}(-1)^{n-1}\frac{3^n}{n\,5^n}\)</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p>This is \(\ln(1 + x) = \sum (-1)^{n-1}\frac{x^n}{n}\) with \(x = \frac{3}{5}\):</p>\[\ln\frac{8}{5}\]</div>
+          </details>
+</div></li>
+        <li><span class="plabel">(b)</span><div><div class="prompt">\(\displaystyle \sum_{n=0}^{\infty}\frac{(-1)^n\pi^{2n+1}}{4^{2n+1}(2n + 1)!}\)</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p>This is the series for \(\sin x\) with \(x = \frac{\pi}{4}\):</p>\[\sin\frac{\pi}{4} = \frac{\sqrt{2}}{2}\]</div>
+          </details>
+</div></li>
+      </ol>
+    </article>
+    <article class="prob" id="p20">
+      <div class="prob-top"><a class="pnum" href="#p20">20</a><button type="button" class="mark" aria-pressed="false" aria-label="Mark problem 20 as done"><span class="box"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.2 5 8.6 9.6 3.6" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="t-todo">Mark done</span><span class="t-done">Done</span></button></div>
+      <div class="prompt">If \(f(x) = \sin(x^3)\), find \(f^{(15)}(0)\).</div>
+      <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+        <div class="sol-body"><p>\(\sin(x^3) = x^3 - \frac{x^9}{3!} + \frac{x^{15}}{5!} - \cdots\). The coefficient of \(x^{15}\) is \(\frac{f^{(15)}(0)}{15!} = \frac{1}{5!}\), so</p>\[f^{(15)}(0) = \frac{15!}{5!}\]</div>
+      </details>
+    </article>
+    <article class="prob" id="p21">
+      <div class="prob-top"><a class="pnum" href="#p21">21</a><button type="button" class="mark" aria-pressed="false" aria-label="Mark problem 21 as done"><span class="box"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.2 5 8.6 9.6 3.6" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="t-todo">Mark done</span><span class="t-done">Done</span></button></div>
+      <div class="prompt"></div>
+      <ol class="parts">
+        <li><span class="plabel">(a)</span><div><div class="prompt">Use the definition to find the degree 4 Taylor polynomial for \(f(x) = e^{3x^2}\) centered at \(c = 2\).</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body">\[T_4(x) = e^{12}\left[1 + 12(x - 2) + 75(x - 2)^2 + 324(x - 2)^3 + \frac{2169}{2}(x - 2)^4\right]\]</div>
+          </details>
+</div></li>
+        <li><span class="plabel">(b)</span><div><div class="prompt">Use a known series to find the Maclaurin series for \(f(x) = e^{3x^2}\).</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body">\[f(x) = \sum_{n=0}^{\infty}\frac{3^n x^{2n}}{n!}\]</div>
+          </details>
+</div></li>
+        <li><span class="plabel">(c)</span><div><div class="prompt">Find the degree 4 Maclaurin polynomial for \(f(x) = e^{3x^2}\).</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body">\[T_4(x) = 1 + 3x^2 + \frac{9}{2}x^4\]</div>
+          </details>
+</div></li>
+        <li><span class="plabel">(d)</span><div><div class="prompt">Why did we have to use the definition for part (a) but not for (b) and (c)? Generalize: for what sorts of functions can you use known series, and when do you have to use the definition to find Taylor polynomials?</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p>The known series are all centered at \(0\). Substituting \(3x^2\) into the series for \(e^u\) gives a series in powers of \(x\), which is exactly a Maclaurin series.</p><p>For a series centered at \(c = 2\) we need powers of \((x - 2)\), and substituting into a Maclaurin series does not produce them, so we compute derivatives. In general: known series work when the function is built from known series (by substitution, multiplication by powers of \(x\), differentiation, or integration) and the center matches; otherwise use the definition \(\frac{f^{(n)}(c)}{n!}\).</p></div>
+          </details>
+</div></li>
+      </ol>
+    </article>
+    <article class="prob" id="p22">
+      <div class="prob-top"><a class="pnum" href="#p22">22</a><button type="button" class="mark" aria-pressed="false" aria-label="Mark problem 22 as done"><span class="box"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.2 5 8.6 9.6 3.6" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="t-todo">Mark done</span><span class="t-done">Done</span></button></div>
+      <div class="prompt"></div>
+      <ol class="parts">
+        <li><span class="plabel">(a)</span><div><div class="prompt">Find the degree 2 Taylor polynomial for \(f(x) = (3x + 6)^{5/3}\) centered at \(c = 7\).</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body">\[T_2(x) = 243 + 45(x - 7) + \frac{5}{3}(x - 7)^2\]</div>
+          </details>
+</div></li>
+        <li><span class="plabel">(b)</span><div><div class="prompt">Use part (a) to estimate the value of \((27.3)^{5/3} = (3(7.1) + 6)^{5/3}\). Use a calculator and give your answer in decimal form.</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body">\[(27.3)^{5/3} \approx T_2(7.1) = 243 + 4.5 + \frac{5}{3}(0.01) \approx 247.517\]</div>
+          </details>
+</div></li>
+      </ol>
+    </article>
+    <article class="prob" id="p23">
+      <div class="prob-top"><a class="pnum" href="#p23">23</a><button type="button" class="mark" aria-pressed="false" aria-label="Mark problem 23 as done"><span class="box"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.2 5 8.6 9.6 3.6" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="t-todo">Mark done</span><span class="t-done">Done</span></button></div>
+      <div class="prompt">Find the Taylor series for \(\displaystyle f(x) = \int \left(\frac{e^{x^2} - 1}{x} + \frac{3}{(1 - x)^2}\right)dx\) centered at \(c = 0\).</div>
+      <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+        <div class="sol-body">\[C + \sum_{n=1}^{\infty}\frac{x^{2n}}{2n\cdot n!} + \sum_{n=1}^{\infty}3x^{n}\]\[= C + \left(\frac{x^2}{2} + \frac{x^4}{4\cdot 2!} + \frac{x^6}{6\cdot 3!} + \cdots\right) + \left(3x + 3x^2 + 3x^3 + \cdots\right)\]</div>
+      </details>
+    </article>
+    <article class="prob" id="p24">
+      <div class="prob-top"><a class="pnum" href="#p24">24</a><button type="button" class="mark" aria-pressed="false" aria-label="Mark problem 24 as done"><span class="box"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.2 5 8.6 9.6 3.6" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="t-todo">Mark done</span><span class="t-done">Done</span></button></div>
+      <div class="prompt"></div>
+      <ol class="parts">
+        <li><span class="plabel">(a)</span><div><div class="prompt">For \(f(x) = \sqrt{x}\), approximate \(f(4.2)\) by a degree 2 Taylor polynomial centered at 4.</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body">\[T_2(x) = 2 + \frac{x - 4}{4} - \frac{(x - 4)^2}{64}, \qquad f(4.2) \approx T_2(4.2) = 2.049375\]</div>
+          </details>
+</div></li>
+        <li><span class="plabel">(b)</span><div><div class="prompt">Use the Lagrange Remainder Formula to determine the maximum possible error in part (a).</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p>\(f'''(x) = \frac{3}{8}x^{-5/2}\) is largest on \([4, 4.2]\) at \(x = 4\): \(M = \frac{3}{256}\).</p>\[|R_2| \le \frac{3}{256}\cdot\frac{(0.2)^3}{3!} \approx 0.0000156\]</div>
+          </details>
+</div></li>
+      </ol>
+    </article>
+    <article class="prob" id="p25">
+      <div class="prob-top"><a class="pnum" href="#p25">25</a><button type="button" class="mark" aria-pressed="false" aria-label="Mark problem 25 as done"><span class="box"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.2 5 8.6 9.6 3.6" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="t-todo">Mark done</span><span class="t-done">Done</span></button></div>
+      <div class="prompt"></div>
+      <ol class="parts">
+        <li><span class="plabel">(a)</span><div><div class="prompt">For \(f(x) = x^{2/3}\), approximate \(f(1.2)\) by a degree 3 Taylor polynomial centered at 1.</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body">\[T_3(x) = 1 + \frac{2}{3}(x - 1) - \frac{1}{9}(x - 1)^2 + \frac{4}{81}(x - 1)^3, \qquad f(1.2) \approx 1.12928\]</div>
+          </details>
+</div></li>
+        <li><span class="plabel">(b)</span><div><div class="prompt">Use the Lagrange Remainder Formula to determine the maximum possible error in part (a).</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p>\(|f^{(4)}(x)| = \frac{56}{81}x^{-10/3}\) is largest on \([1, 1.2]\) at \(x = 1\): \(M = \frac{56}{81}\).</p>\[|R_3| \le \frac{56}{81}\cdot\frac{(0.2)^4}{4!} \approx 0.0000461\]</div>
+          </details>
+</div></li>
+      </ol>
+    </article>
+    <article class="prob" id="p26">
+      <div class="prob-top"><a class="pnum" href="#p26">26</a><button type="button" class="mark" aria-pressed="false" aria-label="Mark problem 26 as done"><span class="box"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.2 5 8.6 9.6 3.6" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="t-todo">Mark done</span><span class="t-done">Done</span></button></div>
+      <div class="prompt"></div>
+      <ol class="parts">
+        <li><span class="plabel">(a)</span><div><div class="prompt">For \(f(x) = x\sin x\), approximate \(f(1)\) by a degree 4 Taylor polynomial centered at 0.</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body">\[T_4(x) = x^2 - \frac{x^4}{6}, \qquad f(1) \approx \frac{5}{6}\]</div>
+          </details>
+</div></li>
+        <li><span class="plabel">(b)</span><div><div class="prompt">Use the Lagrange Remainder Formula to determine the maximum possible error in part (a).</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p>\(f^{(5)}(x) = x\cos x + 5\sin x\), and \(|f^{(5)}(x)| \le \cos 1 + 5\sin 1 \approx 4.748\) on \([0, 1]\).</p>\[|R_4| \le \frac{4.748\cdot 1^5}{5!} \approx 0.0396\]</div>
+          </details>
+</div></li>
+      </ol>
+    </article>
+    </div>
+  </section>
+  <section class="section" id="parametric">
+    <div class="section-head"><span class="eyebrow">Problems 27–35</span></div>
+    <h2>Parametric equations</h2>
+    <div class="instructions"></div>
+    <div class="plist">
+    <article class="prob" id="p27">
+      <div class="prob-top"><a class="pnum" href="#p27">27</a><button type="button" class="mark" aria-pressed="false" aria-label="Mark problem 27 as done"><span class="box"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.2 5 8.6 9.6 3.6" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="t-todo">Mark done</span><span class="t-done">Done</span></button></div>
+      <div class="prompt">Eliminate the parameter \(t\) to find the corresponding Cartesian equation, and sketch the curve given by the parametric equations.</div>
+      <ol class="parts">
+        <li><span class="plabel">(a)</span><div><div class="prompt">\(x = 3 - 4t, \quad y = 2 - 3t\)</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p>\(t = \frac{3 - x}{4}\), so</p>\[y = \frac{3x - 1}{4} \quad\text{(a line)}\]</div>
+          </details>
+</div></li>
+        <li><span class="plabel">(b)</span><div><div class="prompt">\(x = 1 - t^2, \quad y = t - 2, \quad -2 \le t \le 4\)</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p>\(t = y + 2\), so</p>\[x = -y^2 - 4y - 3, \quad -4 \le y \le 2 \quad\text{(part of a parabola opening left)}\]</div>
+          </details>
+</div></li>
+        <li><span class="plabel">(c)</span><div><div class="prompt">\(x = t^2, \quad y = t^3\)</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body">\[y^2 = x^3, \text{ i.e. } y = \pm x^{3/2} \quad\text{(a semicubical parabola with a cusp at the origin)}\]</div>
+          </details>
+</div></li>
+        <li><span class="plabel">(d)</span><div><div class="prompt">\(x = \sin t, \quad y = \csc t, \quad 0 \lt t \le \pi/2\)</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body">\[y = \frac{1}{x}, \quad 0 \lt x \le 1 \quad\text{(part of a hyperbola)}\]</div>
+          </details>
+</div></li>
+      </ol>
+    </article>
+    <article class="prob" id="p28">
+      <div class="prob-top"><a class="pnum" href="#p28">28</a><button type="button" class="mark" aria-pressed="false" aria-label="Mark problem 28 as done"><span class="box"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.2 5 8.6 9.6 3.6" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="t-todo">Mark done</span><span class="t-done">Done</span></button></div>
+      <div class="prompt">Match the graphs of the parametric equations \(x = f(t)\) and \(y = g(t)\) in (a)&ndash;(d) with the parametric curves labelled I&ndash;IV.</div>
+<figure class="fig"><img src="images/para_match1.png" alt="Four pairs of graphs x = f(t), y = g(t) labelled (a) to (d), and four parametric curves labelled I to IV" loading="lazy" style="max-width:420px"></figure>      <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+        <div class="sol-body"><p>(a) &rarr; III, &nbsp; (b) &rarr; I, &nbsp; (c) &rarr; IV, &nbsp; (d) &rarr; II</p></div>
+      </details>
+    </article>
+    <article class="prob" id="p29">
+      <div class="prob-top"><a class="pnum" href="#p29">29</a><button type="button" class="mark" aria-pressed="false" aria-label="Mark problem 29 as done"><span class="box"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.2 5 8.6 9.6 3.6" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="t-todo">Mark done</span><span class="t-done">Done</span></button></div>
+      <div class="prompt">Find parametric equations for the path of a particle that moves along a straight line from the point \((6, 1)\) to the point \((-4, -9)\).</div>
+      <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+        <div class="sol-body"><p>Many answers are possible. One is</p>\[x = 6 - 10t, \quad y = 1 - 10t, \quad 0 \le t \le 1\]</div>
+      </details>
+    </article>
+    <article class="prob" id="p30">
+      <div class="prob-top"><a class="pnum" href="#p30">30</a><button type="button" class="mark" aria-pressed="false" aria-label="Mark problem 30 as done"><span class="box"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.2 5 8.6 9.6 3.6" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="t-todo">Mark done</span><span class="t-done">Done</span></button></div>
+      <div class="prompt">Find parametric equations for the path of a particle that moves along the circle \(x^2 + (y - 1)^2 = 4\) in the manner described.</div>
+      <ol class="parts">
+        <li><span class="plabel">(a)</span><div><div class="prompt">Once around clockwise, starting at \((2, 1)\).</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body">\[x = 2\cos t, \quad y = 1 - 2\sin t, \quad 0 \le t \le 2\pi\]</div>
+          </details>
+</div></li>
+        <li><span class="plabel">(b)</span><div><div class="prompt">Three times around counterclockwise, starting at \((2, 1)\).</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body">\[x = 2\cos t, \quad y = 1 + 2\sin t, \quad 0 \le t \le 6\pi\]</div>
+          </details>
+</div></li>
+        <li><span class="plabel">(c)</span><div><div class="prompt">Halfway around counterclockwise, starting at \((0, 3)\).</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body">\[x = 2\cos t, \quad y = 1 + 2\sin t, \quad \frac{\pi}{2} \le t \le \frac{3\pi}{2}\]</div>
+          </details>
+</div></li>
+      </ol>
+    </article>
+    <article class="prob" id="p31">
+      <div class="prob-top"><a class="pnum" href="#p31">31</a><button type="button" class="mark" aria-pressed="false" aria-label="Mark problem 31 as done"><span class="box"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.2 5 8.6 9.6 3.6" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="t-todo">Mark done</span><span class="t-done">Done</span></button></div>
+      <div class="prompt">Find an equation of the tangent to the curve at the given point.</div>
+      <ol class="parts">
+        <li><span class="plabel">(a)</span><div><div class="prompt">\(x = 1 + 4t - t^2, \quad y = 2 - t^3; \quad t = 1\)</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p>\(\displaystyle\frac{dy}{dx} = \frac{-3t^2}{4 - 2t}\bigg|_{t=1} = -\frac{3}{2}\); the point is \((4, 1)\).</p>\[y = -\frac{3}{2}x + 7\]</div>
+          </details>
+</div></li>
+        <li><span class="plabel">(b)</span><div><div class="prompt">\(x = t - t^{-1}, \quad y = 1 + t^2; \quad t = 1\)</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p>\(\displaystyle\frac{dy}{dx} = \frac{2t}{1 + t^{-2}}\bigg|_{t=1} = 1\); the point is \((0, 2)\).</p>\[y = x + 2\]</div>
+          </details>
+</div></li>
+        <li><span class="plabel">(c)</span><div><div class="prompt">\(x = t\cos t, \quad y = t\sin t; \quad t = \pi\)</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p>\(\displaystyle\frac{dy}{dx} = \frac{\sin t + t\cos t}{\cos t - t\sin t}\bigg|_{t=\pi} = \frac{-\pi}{-1} = \pi\); the point is \((-\pi, 0)\).</p>\[y = \pi(x + \pi) = \pi x + \pi^2\]</div>
+          </details>
+</div></li>
+        <li><span class="plabel">(d)</span><div><div class="prompt">\(x = 1 + \sqrt{t}, \quad y = t^2 + 2; \quad (2, 3)\)</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p>The point \((2, 3)\) corresponds to \(t = 1\). \(\displaystyle\frac{dy}{dx} = \frac{2t}{1/(2\sqrt{t})} = 4t^{3/2}\Big|_{t=1} = 4\).</p>\[y = 4x - 5\]</div>
+          </details>
+</div></li>
+      </ol>
+    </article>
+    <article class="prob" id="p32">
+      <div class="prob-top"><a class="pnum" href="#p32">32</a><button type="button" class="mark" aria-pressed="false" aria-label="Mark problem 32 as done"><span class="box"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.2 5 8.6 9.6 3.6" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="t-todo">Mark done</span><span class="t-done">Done</span></button></div>
+      <div class="prompt">Graph the curve.</div>
+      <ol class="parts">
+        <li><span class="plabel">(a)</span><div><div class="prompt">\(x = t^3 - 3t, \quad y = t^2 - 3\)</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><figure class="fig"><img src="images/E4SG_29a.png" alt="Graph of x = t cubed minus 3t, y = t squared minus 3" style="max-width:260px" loading="lazy"></figure></div>
+          </details>
+</div></li>
+        <li><span class="plabel">(b)</span><div><div class="prompt">\(x = t^3 - 3t, \quad y = t^3 - 3t^2\)</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><figure class="fig"><img src="images/E4SG_29b.png" alt="Graph of x = t cubed minus 3t, y = t cubed minus 3 t squared" style="max-width:260px" loading="lazy"></figure></div>
+          </details>
+</div></li>
+        <li><span class="plabel">(c)</span><div><div class="prompt">\(x = \cos\theta, \quad y = \cos 3\theta\)</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><figure class="fig"><img src="images/E4SG_29c.png" alt="Graph of x = cos theta, y = cos 3 theta" style="max-width:260px" loading="lazy"></figure></div>
+          </details>
+</div></li>
+        <li><span class="plabel">(d)</span><div><div class="prompt">\(x = \cos t, \quad y = \sin t\cos t\)</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><figure class="fig"><img src="images/E4SG_29d.png" alt="Graph of x = cos t, y = sin t cos t, a figure-eight" style="max-width:300px" loading="lazy"></figure></div>
+          </details>
+</div></li>
+      </ol>
+    </article>
+    <article class="prob" id="p33">
+      <div class="prob-top"><a class="pnum" href="#p33">33</a><button type="button" class="mark" aria-pressed="false" aria-label="Mark problem 33 as done"><span class="box"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.2 5 8.6 9.6 3.6" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="t-todo">Mark done</span><span class="t-done">Done</span></button></div>
+      <div class="prompt">Find the area enclosed by the curve \(x = t^2 - 2t\), \(y = \sqrt{t}\) and the \(y\)-axis.</div>
+      <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+        <div class="sol-body"><p>The curve meets the \(y\)-axis (\(x = 0\)) at \(t = 0\) and \(t = 2\).</p>\[A = \left|\int_0^2 x\,\frac{dy}{dt}\,dt\right| = \left|\int_0^2 \left(t^2 - 2t\right)\frac{1}{2\sqrt{t}}\,dt\right| = \frac{8\sqrt{2}}{15}\]</div>
+      </details>
+    </article>
+    <article class="prob" id="p34">
+      <div class="prob-top"><a class="pnum" href="#p34">34</a><button type="button" class="mark" aria-pressed="false" aria-label="Mark problem 34 as done"><span class="box"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.2 5 8.6 9.6 3.6" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="t-todo">Mark done</span><span class="t-done">Done</span></button></div>
+      <div class="prompt">Find the area enclosed by the \(x\)-axis and the curve \(x = 1 + e^t\), \(y = t - t^2\).</div>
+      <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+        <div class="sol-body"><p>The curve meets the \(x\)-axis at \(t = 0\) and \(t = 1\), and \(y \ge 0\) between them.</p>\[A = \int_0^1 y\,\frac{dx}{dt}\,dt = \int_0^1\left(t - t^2\right)e^t\,dt = 3 - e\]</div>
+      </details>
+    </article>
+    <article class="prob" id="p35">
+      <div class="prob-top"><a class="pnum" href="#p35">35</a><button type="button" class="mark" aria-pressed="false" aria-label="Mark problem 35 as done"><span class="box"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.2 5 8.6 9.6 3.6" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="t-todo">Mark done</span><span class="t-done">Done</span></button></div>
+      <div class="prompt">Find the exact length of the curve.</div>
+      <ol class="parts">
+        <li><span class="plabel">(a)</span><div><div class="prompt">\(x = e^t + e^{-t}, \quad y = 5 - 2t, \quad 0 \le t \le 3\)</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p>\(\left(\frac{dx}{dt}\right)^2 + \left(\frac{dy}{dt}\right)^2 = (e^t - e^{-t})^2 + 4 = (e^t + e^{-t})^2\).</p>\[L = \int_0^3\left(e^t + e^{-t}\right)dt = e^3 - e^{-3}\]</div>
+          </details>
+</div></li>
+        <li><span class="plabel">(b)</span><div><div class="prompt">\(x = t\sin t, \quad y = t\cos t, \quad 0 \le t \le 1\)</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p>\(\left(\frac{dx}{dt}\right)^2 + \left(\frac{dy}{dt}\right)^2 = (\sin t + t\cos t)^2 + (\cos t - t\sin t)^2 = 1 + t^2\).</p>\[L = \int_0^1\sqrt{1 + t^2}\,dt = \frac{\sqrt{2}}{2} + \frac{1}{2}\ln\!\left(1 + \sqrt{2}\right)\]</div>
+          </details>
+</div></li>
+      </ol>
+    </article>
+    </div>
+  </section>
+  <section class="section" id="polar">
+    <div class="section-head"><span class="eyebrow">Problems 36–42</span></div>
+    <h2>Polar coordinates</h2>
+    <div class="instructions"></div>
+    <div class="plist">
+    <article class="prob" id="p36">
+      <div class="prob-top"><a class="pnum" href="#p36">36</a><button type="button" class="mark" aria-pressed="false" aria-label="Mark problem 36 as done"><span class="box"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.2 5 8.6 9.6 3.6" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="t-todo">Mark done</span><span class="t-done">Done</span></button></div>
+      <div class="prompt">Plot the point whose polar coordinates are given. Then find the Cartesian coordinates of the point.</div>
+      <ol class="parts">
+        <li><span class="plabel">(a)</span><div><div class="prompt">\((1, \pi)\)</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p>\((-1, 0)\)</p></div>
+          </details>
+</div></li>
+        <li><span class="plabel">(b)</span><div><div class="prompt">\(\left(2, -\frac{2\pi}{3}\right)\)</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p>\(\left(-1, -\sqrt{3}\right)\)</p></div>
+          </details>
+</div></li>
+        <li><span class="plabel">(c)</span><div><div class="prompt">\(\left(-\sqrt{21}, \frac{5\pi}{4}\right)\)</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p>\(x = -\sqrt{21}\cos\frac{5\pi}{4} = \frac{\sqrt{42}}{2}\), \(y = -\sqrt{21}\sin\frac{5\pi}{4} = \frac{\sqrt{42}}{2}\), so \(\left(\frac{\sqrt{42}}{2}, \frac{\sqrt{42}}{2}\right) \approx (3.24, 3.24)\).</p></div>
+          </details>
+</div></li>
+      </ol>
+      <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Plot of all three points</span><span class="when-open">Hide plot of all three points</span></summary>
+        <div class="sol-body"><figure class="fig"><img src="images/E4SG_33a.png" alt="Plot of the three points (-1, 0), (-1, -1.73), and (3.24, 3.24)" style="max-width:360px" loading="lazy"></figure></div>
+      </details>
+    </article>
+    <article class="prob" id="p37">
+      <div class="prob-top"><a class="pnum" href="#p37">37</a><button type="button" class="mark" aria-pressed="false" aria-label="Mark problem 37 as done"><span class="box"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.2 5 8.6 9.6 3.6" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="t-todo">Mark done</span><span class="t-done">Done</span></button></div>
+      <div class="prompt">The Cartesian coordinates of a point are given. Find polar coordinates \((r, \theta)\) of the point, where \(r \gt 0\) and \(0 \le \theta \lt 2\pi\).</div>
+      <ol class="parts">
+        <li><span class="plabel">(a)</span><div><div class="prompt">\((2, -2)\)</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p>\(\left(2\sqrt{2}, \frac{7\pi}{4}\right)\)</p></div>
+          </details>
+</div></li>
+        <li><span class="plabel">(b)</span><div><div class="prompt">\((-1, \sqrt{3})\)</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p>\(\left(2, \frac{2\pi}{3}\right)\)</p></div>
+          </details>
+</div></li>
+        <li><span class="plabel">(c)</span><div><div class="prompt">\((3\sqrt{3}, 3)\)</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p>\(\left(6, \frac{\pi}{6}\right)\)</p></div>
+          </details>
+</div></li>
+      </ol>
+    </article>
+    <article class="prob" id="p38">
+      <div class="prob-top"><a class="pnum" href="#p38">38</a><button type="button" class="mark" aria-pressed="false" aria-label="Mark problem 38 as done"><span class="box"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.2 5 8.6 9.6 3.6" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="t-todo">Mark done</span><span class="t-done">Done</span></button></div>
+      <div class="prompt">Sketch the region in the plane consisting of points whose polar coordinates satisfy the given conditions.</div>
+      <ol class="parts">
+        <li><span class="plabel">(a)</span><div><div class="prompt">\(r \gt 1\)</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p>Everything outside the unit circle.</p><figure class="fig"><img src="images/E4SG_35a.png" alt="The region outside the unit circle, shaded" style="max-width:300px" loading="lazy"></figure></div>
+          </details>
+</div></li>
+        <li><span class="plabel">(b)</span><div><div class="prompt">\(2 \lt r \lt 3, \quad \frac{5\pi}{3} \le \theta \le \frac{7\pi}{3}\)</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p>Part of the ring between the circles of radius 2 and 3, from \(\theta = -\frac{\pi}{3}\) to \(\theta = \frac{\pi}{3}\).</p><figure class="fig"><img src="images/E4SG_35b.png" alt="The part of the ring 2 &lt; r &lt; 3 between the rays theta = 5 pi over 3 and theta = 7 pi over 3, shaded" style="max-width:300px" loading="lazy"></figure></div>
+          </details>
+</div></li>
+      </ol>
+    </article>
+    <article class="prob" id="p39">
+      <div class="prob-top"><a class="pnum" href="#p39">39</a><button type="button" class="mark" aria-pressed="false" aria-label="Mark problem 39 as done"><span class="box"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.2 5 8.6 9.6 3.6" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="t-todo">Mark done</span><span class="t-done">Done</span></button></div>
+      <div class="prompt">Find the distance between the points with polar coordinates \(\left(2, \frac{\pi}{3}\right)\) and \(\left(4, \frac{2\pi}{3}\right)\).</div>
+      <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+        <div class="sol-body"><p>By the Law of Cosines (the angle between the rays is \(\frac{\pi}{3}\)): \(d^2 = 2^2 + 4^2 - 2(2)(4)\cos\frac{\pi}{3} = 12\).</p>\[d = 2\sqrt{3}\]</div>
+      </details>
+    </article>
+    <article class="prob" id="p40">
+      <div class="prob-top"><a class="pnum" href="#p40">40</a><button type="button" class="mark" aria-pressed="false" aria-label="Mark problem 40 as done"><span class="box"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.2 5 8.6 9.6 3.6" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="t-todo">Mark done</span><span class="t-done">Done</span></button></div>
+      <div class="prompt">Find a polar equation for the curve represented by the Cartesian equation.</div>
+      <ol class="parts">
+        <li><span class="plabel">(a)</span><div><div class="prompt">\(y = 2\)</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body">\[r\sin\theta = 2 \;\Longrightarrow\; r = 2\csc\theta\]</div>
+          </details>
+</div></li>
+        <li><span class="plabel">(b)</span><div><div class="prompt">\(y = 1 + 3x\)</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body">\[r\sin\theta = 1 + 3r\cos\theta \;\Longrightarrow\; r = \frac{1}{\sin\theta - 3\cos\theta}\]</div>
+          </details>
+</div></li>
+        <li><span class="plabel">(c)</span><div><div class="prompt">\(xy = 4\)</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body">\[r^2\sin\theta\cos\theta = 4 \;\Longrightarrow\; r^2 = \frac{8}{\sin 2\theta} = 8\csc 2\theta\]</div>
+          </details>
+</div></li>
+      </ol>
+    </article>
+    <article class="prob" id="p41">
+      <div class="prob-top"><a class="pnum" href="#p41">41</a><button type="button" class="mark" aria-pressed="false" aria-label="Mark problem 41 as done"><span class="box"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.2 5 8.6 9.6 3.6" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="t-todo">Mark done</span><span class="t-done">Done</span></button></div>
+      <div class="prompt">Find a Cartesian equation for the given polar curve.</div>
+      <ol class="parts">
+        <li><span class="plabel">(a)</span><div><div class="prompt">\(r^2 = 5\)</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body">\[x^2 + y^2 = 5 \quad\text{(circle of radius } \sqrt{5}\text{)}\]</div>
+          </details>
+</div></li>
+        <li><span class="plabel">(b)</span><div><div class="prompt">\(r = 2\cos\theta\)</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p>Multiply by \(r\): \(r^2 = 2r\cos\theta\).</p>\[x^2 + y^2 = 2x, \text{ i.e. } (x - 1)^2 + y^2 = 1\]</div>
+          </details>
+</div></li>
+        <li><span class="plabel">(c)</span><div><div class="prompt">\(r^2\cos 2\theta = 1\)</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p>\(r^2(\cos^2\theta - \sin^2\theta) = 1\).</p>\[x^2 - y^2 = 1 \quad\text{(a hyperbola)}\]</div>
+          </details>
+</div></li>
+        <li><span class="plabel">(d)</span><div><div class="prompt">\(\theta = \frac{\pi}{3}\)</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body">\[y = \sqrt{3}\,x \quad\text{(a line through the origin)}\]</div>
+          </details>
+</div></li>
+      </ol>
+    </article>
+    <article class="prob" id="p42">
+      <div class="prob-top"><a class="pnum" href="#p42">42</a><button type="button" class="mark" aria-pressed="false" aria-label="Mark problem 42 as done"><span class="box"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.2 5 8.6 9.6 3.6" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="t-todo">Mark done</span><span class="t-done">Done</span></button></div>
+      <div class="prompt">Sketch the polar curve.</div>
+      <ol class="parts">
+        <li><span class="plabel">(a)</span><div><div class="prompt">\(r = 2\sin\theta\)</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p>A circle of radius 1 centered at \((0, 1)\): \(x^2 + (y - 1)^2 = 1\). It is traced once for \(0 \le \theta \le \pi\).</p><figure class="fig"><img src="images/polar_2sin.png" alt="Graph of r = 2 sin theta, a circle of radius 1 centered at (0, 1)" style="max-width:280px" loading="lazy"></figure></div>
+          </details>
+</div></li>
+        <li><span class="plabel">(b)</span><div><div class="prompt">\(r = 1 + \cos\theta\)</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p>A cardioid: \(r = 2\) at \(\theta = 0\), \(r = 1\) at \(\theta = \pm\frac{\pi}{2}\), and \(r = 0\) at \(\theta = \pi\) (the cusp at the origin).</p><figure class="fig"><img src="images/polar_cardioid.png" alt="Graph of the cardioid r = 1 + cos theta" style="max-width:280px" loading="lazy"></figure></div>
+          </details>
+</div></li>
+        <li><span class="plabel">(c)</span><div><div class="prompt">\(r = \cos 2\theta\)</div>
+          <details class="sol"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="when-closed">Solution</span><span class="when-open">Hide solution</span></summary>
+            <div class="sol-body"><p>A four-leaved rose. The leaves are centered on the axes, and \(r = 0\) at \(\theta = \frac{\pi}{4}, \frac{3\pi}{4}, \ldots\)</p><figure class="fig"><img src="images/polar_rose.png" alt="Graph of the four-leaved rose r = cos 2 theta" style="max-width:280px" loading="lazy"></figure></div>
+          </details>
+</div></li>
+      </ol>
+    </article>
+    </div>
+  </section>
+
+<nav class="pager" aria-label="Other study guides"><a class="prev" href="exam3.html"><small>Previous</small>Exam 3 · Sequences and series</a><a class="next" href="index.html"><small>Back to</small>All study guides</a></nav>
+  </main>
+</div>
+<footer class="site-foot"><div class="inner"><span>MAT 137 Calculus II · Northern Arizona University</span><span>Your &ldquo;done&rdquo; marks are saved only in this browser.</span></div></footer>
+</body>
+</html>
