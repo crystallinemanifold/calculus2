@@ -516,3 +516,17 @@ details.ref[open] > summary .chev { transform: rotate(90deg); }
   .toolbar { position: static; }
   .tools .btn { padding: 4px 9px; font-size: .82rem; }
 }
+
+/* ---------- Collapsible sidebar (sidebar-toggle-v1) ---------- */
+.sb-toggle .chev { transition: transform .2s ease; transform-origin: 9.75px 8px; }
+html.sb-collapsed .sb-toggle .chev { transform: translateX(-1.5px) scaleX(-1); }
+.layout { transition: grid-template-columns .2s ease, gap .2s ease; }
+html.sb-collapsed .layout { grid-template-columns: 0 minmax(0, 1fr); gap: 0; }
+html.sb-collapsed .toc { visibility: hidden; overflow: hidden; }
+@media (max-width: 960px) {
+  html.sb-collapsed .layout { grid-template-columns: minmax(0, 1fr); }
+  html.sb-collapsed .toc { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .layout, .sb-toggle .chev { transition: none; }
+}

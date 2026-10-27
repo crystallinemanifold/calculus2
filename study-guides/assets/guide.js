@@ -1,6 +1,7 @@
 /* MAT 137 Calculus II — Study Guides
    Shared behaviour: expand/collapse solutions, "done" tracking saved in
-   this browser, section progress in the sidebar, theme toggle. */
+   this browser, section progress in the sidebar, theme toggle,
+   collapsible sidebar. */
 (function () {
   "use strict";
 
@@ -30,6 +31,25 @@
       writeJSON(PREFIX + "theme", next);
     });
   });
+
+  /* ---------- Collapsible sidebar (sidebar-toggle-v1) ---------- */
+  var sbButtons = document.querySelectorAll("[data-action='sidebar']");
+  function paintSidebar() {
+    var collapsed = root.classList.contains("sb-collapsed");
+    sbButtons.forEach(function (b) {
+      b.setAttribute("aria-expanded", collapsed ? "false" : "true");
+      b.title = collapsed ? "Show sidebar" : "Hide sidebar";
+      b.setAttribute("aria-label", collapsed ? "Show sidebar" : "Hide sidebar");
+    });
+  }
+  sbButtons.forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      root.classList.toggle("sb-collapsed");
+      writeJSON(PREFIX + "sidebar", root.classList.contains("sb-collapsed") ? "collapsed" : "open");
+      paintSidebar();
+    });
+  });
+  paintSidebar();
 
   /* ---------- Index page: show saved progress on each card ---------- */
   document.querySelectorAll("[data-progress-for]").forEach(function (el) {
